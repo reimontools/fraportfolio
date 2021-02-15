@@ -1,0 +1,56 @@
+@font-face{
+    font-family: fontAliens;
+    src: url(fontAliens.ttf);
+}
+
+@font-face{
+    font-family: fontBrandon;
+    src: url(fontBrandon.ttf);
+}
+
+.menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: auto;
+    padding: 0px 40px;
+}
+
+.name-container {
+    font-family: fontAliens;
+    font-size: 40px;
+    letter-spacing: 3px;
+    color: rgb(99, 99, 99);
+    padding-top: 70px;
+}
+
+.nav-container {
+    position: relative;
+    margin: 0 auto;
+    padding-top: 300px;
+    clear: both;
+}
+
+.ul-container{
+    list-style: none;
+}
+
+.ul-container li{
+    padding-bottom: 10px;
+}
+
+.nav-link {
+    font-family: fontBrandon, sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+    color: rgb(55, 55, 55);
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: rgb(186, 218, 85);
+}
+
+.nav-link-active {
+    color: rgb(186, 218, 85);
+}
