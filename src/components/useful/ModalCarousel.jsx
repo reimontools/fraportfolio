@@ -17,23 +17,23 @@ const ModalCarousel = forwardRef((props, ref) => {
         return {
             openModal: (index, max) => open(index, max),
             closeModal: () => close()
-        }
+        };
     });
 
     const open = (index, max) => {
-        setIndex(index)
-        setMax(max)
-        setDisplay(true)
-    }
+        setIndex(index);
+        setMax(max);
+        setDisplay(true);
+    };
 
     const expand = () => {
         if (document.fullscreenElement) {
-            setfullScreen(false)
+            setfullScreen(false);
             document.exitFullscreen();
         } else {
-            setfullScreen(true)
+            setfullScreen(true);
             document.documentElement.requestFullscreen().catch((e) => {
-                setfullScreen(false)
+                setfullScreen(false);
                 console.log(e);
             });
         };
@@ -41,63 +41,50 @@ const ModalCarousel = forwardRef((props, ref) => {
 
     const close = () => {
         if (document.fullscreenElement) {
-            setfullScreen(false)
-            document.exitFullscreen()
+            setfullScreen(false);
+            document.exitFullscreen();
         }
-        setDisplay(false)
-    }
+        setDisplay(false);
+    };
 
     const foward = () => {
         if (index === max) {
-            setIndex(0)
+            setIndex(0);
         } else {
-            setIndex(index + 1)
-        }
+            setIndex(index + 1);
+        };
     }
 
     const back = () => {
         if (index === 0) {
-            setIndex(max)
+            setIndex(max);
         } else {
-            setIndex(index - 1)
-        }
-    }
+            setIndex(index - 1);
+        };
+    };
 
     if (display) {
         return ReactDOM.createPortal(
             <div className="overlay">
                 <div className="slideshow">
-
                     <div onClick={expand} className="btn-icon expand">
                         {fullScreen
                             ? <BsArrowsAngleContract />
                             : <BsArrowsAngleExpand />
                         }
                     </div>
-
                     <div onClick={close} className="btn-icon close">
-                        <BsX className="agrandar"/>
+                        <BsX className="expand-effect"/>
                     </div>
-
                     <div onClick={back} className="btn-icon back">
-                        <BsChevronLeft className="agrandar"/>
+                        <BsChevronLeft className="expand-effect"/>
                     </div>
-
                     <div onClick={foward} className="btn-icon forward">
-                        <BsChevronRight className="agrandar"/>
+                        <BsChevronRight className="expand-effect"/>
                     </div>
-
-                    <img 
-                        src={props.imagenes[index].portraitImage.asset.url} 
-                        alt={props.imagenes[index].portraitImage.alt}>
-                    </img> 
-
-                    <div className="image-name">
-                        {props.imagenes[index].title}
-                    </div>
-
+                    <img src={props.images[index].portraitImage.asset.url} alt={props.images[index].portraitImage.alt}></img> 
+                    <div className="image-name">{props.images[index].title}</div>
                 </div>
-                
             </div>, document.getElementById("modal-root")
         );
     };

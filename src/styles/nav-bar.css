@@ -1,19 +1,25 @@
 @font-face{
     font-family: fontAliens;
-    src: url(fontAliens.ttf);
+    /* src: url(fontAliens.ttf); */
+    src: url("../fonts/fontAliens.ttf");
 }
 
 @font-face{
     font-family: fontBrandon;
-    src: url(fontBrandon.ttf);
+    /* src: url(fontBrandon.ttf); */
+    src: url("../fonts/fontBrandon.ttf");
 }
 
-.menu-container {
+.head-container {
     position: fixed;
     top: 0;
     left: 0;
-    width: auto;
-    padding: 0px 40px;
+    width: 100vw;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
 }
 
 .name-container {
@@ -21,18 +27,32 @@
     font-size: 40px;
     letter-spacing: 3px;
     color: rgb(99, 99, 99);
-    padding-top: 70px;
+    padding-left: 3%;
+    width: auto;
+}
+
+#nav-toggle {
+    position: absolute;
+    top: -100px;
 }
 
 .nav-container {
-    position: relative;
-    margin: 0 auto;
-    padding-top: 300px;
-    clear: both;
-}
+    position: fixed;
+    width: 100vw;
+    min-height: 100vh;
+    padding-top: 0;
+    left: 0;
+    bottom: 0;
+} 
 
 .ul-container{
     list-style: none;
+    padding-left: 4%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .ul-container li{
@@ -53,4 +73,56 @@
 
 .nav-link-active {
     color: rgb(186, 218, 85);
+}
+
+@media screen and (max-width: 768px) {
+    .head-container {
+        height: 80px;
+    }
+    .name-container {
+        font-size: 30px;
+        letter-spacing: 3px;
+    }
+    .burger-container {
+        padding-right: 3%;
+    }
+    .burger-container .line {
+        width: 25px;
+        height: 3px;
+        background-color: rgb(99, 99, 99);
+        margin: 3px;
+        border-radius: 5px;
+        transition: all .3s ease-in-out;
+        cursor: pointer;
+    }
+    .nav-container {        
+        /* background-color: rgb(99, 99, 99); */
+        height: 100vh;
+        bottom: 100%;
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+    }
+
+    .ul-container{
+        padding: 0;
+        height: 100vh;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .todo :checked ~ .nav-container {
+        bottom: 0;
+    } 
+    .todo .burger-container {
+        display: block;
+    }
+    .todo :checked ~ .head-container .burger-container .line:nth-child(1) {
+        transform: translateY(6px) rotate(225deg);
+    }   
+    .todo :checked ~ .head-container .burger-container .line:nth-child(3) {
+        transform: translateY(-6px) rotate(-225deg);
+    }   
+    .todo :checked ~ .head-container .burger-container .line:nth-child(2) {
+        opacity: 0;
+    }
 }

@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function About() {
-    return <h1>About page!</h1>
+    
+    useEffect(() => {
+        document.getElementById("nav-toggle").checked = false;
+    }, []);
+    
+    return <></>
 }

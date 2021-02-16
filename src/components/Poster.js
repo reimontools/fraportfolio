@@ -1,5 +1,7 @@
-import React from "react";
-
+import React, { useEffect } from "react";
 export default function Poster() {
-    return <h1>Poster page!</h1>
+    useEffect(() => {
+        document.getElementById("nav-toggle").checked = false;
+    }, []);
+    return <></>
 }

@@ -1,6 +1,7 @@
 @font-face{
     font-family: fontBrandon;
-    src: url(fontBrandon.ttf);
+    /* src: url(fontBrandon.ttf); */
+    src: url("../fonts/fontBrandon.ttf");
 }
 
 .overlay {
@@ -9,7 +10,6 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    /* background-color: rgba(0, 0, 0, .5); */
     background-color: rgb(255, 255, 255);
     z-index: 10000;
     display: flex;
@@ -46,7 +46,7 @@
     color: rgba(0, 0, 0, .7);
 }
 
-.btn-icon:hover > .agrandar {
+.btn-icon:hover > .expand-effect {
     transform: scale(1.4);
     transition: all .2s ease;
 }
@@ -74,7 +74,6 @@
 }
 
 .image-name {
-    /* border: black solid 1px; */
     font-family: fontBrandon;
     font-weight: bolder;
     width: auto;

@@ -1,18 +1,21 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, {useState, useEffect} from "react";
 import sanityClient from "../config/client.js";
-import '../styles/style.css';
-
-import ModalCarousel from "./useful/ModalCarousel";
+import GalleryOne from "./useful/GalleryOne";
+import Loading from "./useful/Loading.jsx";
 
 export default function Portraits() {
     const [portraitsData, setPortraitsData] = useState(null);
-    const modalRef = useRef()
-
-    const openModal = (index, max) => {
-        modalRef.current.openModal(index, max)
-    };
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() => {
+        document.getElementById("nav-toggle").checked = false;
+    }, []);
 
     useEffect(() => {
+        setTimeout(fetchPortraits, 300);
+    }, []);
+
+    const fetchPortraits = async () => {
         sanityClient
             .fetch(`*[_type == "portraits"] | order(location asc) {
                 location,
@@ -23,35 +26,18 @@ export default function Portraits() {
                         url
                     },
                     alt
-                }
-            }`)
-            .then((data) => {
-                setPortraitsData(data);
-            })
-            .catch(console.error)
-    }, []);
+                }}`)
+            .then((data) => {setPortraitsData(data)})
+            .catch(console.error);
+        setLoading(false);
+    };
 
     return (
-        <div className="gallery">
-            <ModalCarousel ref={modalRef} imagenes={portraitsData}/>
-            <div className="photo-container">
-                {portraitsData && portraitsData.map((portrait, index) => (
-                    <div 
-                        onClick={() => openModal(index, portraitsData.length - 1)} 
-                        className="card-container" key={index}>
-                        <img 
-                            className="image-container" 
-                            src={portrait.portraitImage.asset.url} 
-                            alt={portrait.portraitImage.alt} 
-                        />
-                        <div className="text-container">
-                            <div className="image-name-container">
-                                {portrait.title}
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
+        <>
+            {loading 
+                ? <Loading/>
+                : <GalleryOne images={portraitsData}/>
+            }
+        </>
     );
 };

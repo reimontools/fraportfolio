@@ -1,5 +1,7 @@
-import React from "react";
-
+import React, { useEffect } from "react";
 export default function BitsAndPieces() {
-    return <h1>BitsAndPieces page!</h1>
+    useEffect(() => {
+        document.getElementById("nav-toggle").checked = false;
+    }, []);
+    return <></>
 }

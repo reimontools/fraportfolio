@@ -1,35 +1,21 @@
 @font-face{
     font-family: fontAliens;
-    src: url(fontAliens.ttf);
+    /* src: url(fontAliens.ttf); */
+    src: url("../fonts/fontAliens.ttf");
 }
 
 @font-face{
     font-family: fontBrandon;
-    src: url(fontBrandon.ttf);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-.todo-container {
-    display: flex;
+    /* src: url(fontBrandon.ttf); */
+    src: url("../fonts/fontBrandon.ttf");
 }
 
 /*#####################################################################*/
 
-.body {
-    height: auto;
-    width: 100%;
-    padding-top: 70px;
-    padding-left: 10%;
-    display: flex;
-    justify-content: center;
-}
-
 .gallery {
-    width: 50%;
+    width: auto;
+    padding-left: 25%;
+    padding-right: 25%;
 }
 
 .photo-container {
