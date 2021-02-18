@@ -1,7 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 export default function PageNotFound() {
-    useEffect(() => {
-        document.getElementById("nav-toggle").checked = false;
-    }, []);
     return <></>
 }

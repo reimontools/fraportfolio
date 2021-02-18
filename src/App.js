@@ -1,32 +1,18 @@
-import {BrowserRouter, Route, Switch} from "react-router-dom";
-import Portraits from "./components/Portraits";
-import Professional from "./components/Professional";
-import Poster from "./components/Poster";
-import PictureBooks from "./components/PictureBooks";
-import BitsAndPieces from "./components/BitsAndPieces";
-import About from "./components/About";
-import PageNotFound from "./components/PageNotFound";
-import NavBar from "./components/useful/NavBar.jsx";
-import './styles/body.css';
+import React from "react";
+import styled from "styled-components";
+import Routes from './Routes.jsx';
+import './styles/app.css';
+
+const DivBodyStyled = styled.div `
+    height: 100vh;
+    width: 100vw;
+`;
 
 function App() {
     return (
-        <BrowserRouter>
-            <NavBar/>
-            <div className="body">
-                <div className="page">
-                    <Switch>
-                        <Route component={Portraits} path='/' exact />
-                        <Route component={Professional} path='/professional' />
-                        <Route component={Poster} path='/poster' />
-                        <Route component={PictureBooks} path='/picturebooks' />
-                        <Route component={BitsAndPieces} path='/bitsandpieces' />
-                        <Route component={About} path='/about' />
-                        <Route component={PageNotFound} />
-                    </Switch>
-                </div>
-            </div>
-        </BrowserRouter>
+        <DivBodyStyled>
+            <Routes />
+        </DivBodyStyled>
     );
 };
 

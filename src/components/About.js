@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from 'react'
 
-export default function About() {
-    
-    useEffect(() => {
-        document.getElementById("nav-toggle").checked = false;
-    }, []);
-    
-    return <></>
-}
+const About = () => {
+    return (
+        <></>
+    );
+};
+
+export default About;

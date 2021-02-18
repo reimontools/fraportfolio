@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import sanityClient from "../config/client.js";
 import GalleryOne from "./useful/GalleryOne";
 import Loading from "./useful/Loading.jsx";
@@ -6,10 +6,6 @@ import Loading from "./useful/Loading.jsx";
 export default function Portraits() {
     const [portraitsData, setPortraitsData] = useState(null);
     const [loading, setLoading] = useState(true);
-    
-    useEffect(() => {
-        document.getElementById("nav-toggle").checked = false;
-    }, []);
 
     useEffect(() => {
         setTimeout(fetchPortraits, 300);

@@ -1,8 +1,3 @@
-@font-face{
-    font-family: fontBrandon;
-    /* src: url(fontBrandon.ttf); */
-    src: url("../fonts/fontBrandon.ttf");
-}
 
 .overlay {
     position: fixed;

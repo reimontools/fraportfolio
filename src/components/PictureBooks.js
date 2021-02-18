@@ -1,7 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 export default function PictureBooks() {
-    useEffect(() => {
-        document.getElementById("nav-toggle").checked = false;
-    }, []);
     return <></>
 }
