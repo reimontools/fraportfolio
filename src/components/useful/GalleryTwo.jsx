@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { mediumScreenSize } from "../../config/param.js";
 
-const DivGridStyled = styled.div `
+const DivGalleryStyled = styled.div `
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
     gap: 15px;
@@ -11,7 +12,7 @@ const DivGridStyled = styled.div `
         width: 300px;
     }
 
-    @media (max-width: 1000px) {
+    @media (max-width: ${mediumScreenSize}) {
         grid-template-columns: repeat(auto-fill, 100%);
         img {
             width: 100%;
@@ -21,11 +22,11 @@ const DivGridStyled = styled.div `
 
 const GalleryTwo = (props) => {
     return (
-        <DivGridStyled>
+        <DivGalleryStyled>
             {props.images && props.images.map((image, idx) => (
                 <img key={idx} src={image.portraitImage.asset.url} alt={image.portraitImage.alt} />
             ))}
-        </DivGridStyled>
+        </DivGalleryStyled>
     );
 };
 

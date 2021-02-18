@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import Logo from './Logo';
 import NavBar from './NavBar';
+import { mediumScreenSize } from "../../../config/param.js";
 
 const DivHeaderStyled = styled.div `
     position: fixed;
@@ -14,7 +15,7 @@ const DivHeaderStyled = styled.div `
     align-items: center;
     z-index: 1;
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: ${mediumScreenSize}) {
         height: 80px;
     }
 `;

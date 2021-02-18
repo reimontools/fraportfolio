@@ -10,6 +10,7 @@ import PictureBooks from "./components/PictureBooks";
 import BitsAndPieces from "./components/BitsAndPieces";
 import About from "./components/About";
 import PageNotFound from "./components/PageNotFound";
+import { mediumScreenSize } from "./config/param.js";
 
 const DivRoutesStyled = styled.div `
     position: relative;
@@ -20,7 +21,7 @@ const DivRoutesStyled = styled.div `
     justify-content: center; 
     align-content: center;
 
-    @media (max-width: 1000px) {
+    @media (max-width: ${mediumScreenSize}) {
         width: 100%;
         left: 0;
     };
@@ -28,14 +29,13 @@ const DivRoutesStyled = styled.div `
 `;
 
 const DivMainPageStyled = styled.div `
-    width: 90%;
+    width: 70%;
     height: 100%;
     /* border: 1px red solid; */
-    @media (max-width: 1000px) {
+    @media (max-width: ${mediumScreenSize}) {
         width: 100%;
     };
 `;
-
 
 const Routes = () => {
     return (

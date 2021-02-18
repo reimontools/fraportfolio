@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { mediumScreenSize } from "../../../config/param.js";
 
 const NavOptionsStyled = styled.nav `
     position: fixed;
@@ -33,7 +34,7 @@ const NavOptionsStyled = styled.nav `
         color: rgb(186, 218, 85);
     }
 
-    @media screen and (max-width: 1000px) {
+    @media (max-width: ${mediumScreenSize}) {
         width: 100vw;
         left: 0;
         overflow: hidden;

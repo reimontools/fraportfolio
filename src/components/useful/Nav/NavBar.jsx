@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
 import Options from './Options';
+import { mediumScreenSize } from "../../../config/param.js";
 
 const DivBurgerStyled = styled.div `
     display: none;
-    @media (max-width: 1000px) {
+    @media (max-width: ${mediumScreenSize}) {
         display: block;
         padding-right: 3%;
         z-index: 1000;

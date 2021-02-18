@@ -1,0 +1,1 @@
+export const mediumScreenSize = "768px";

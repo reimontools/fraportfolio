@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
+import { mediumScreenSize } from "../../../config/param.js";
 
 const DivLogoStyled = styled.div `
     font-family: fontAliens;
@@ -9,7 +10,7 @@ const DivLogoStyled = styled.div `
     padding-left: 3%;
     width: auto;
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: ${mediumScreenSize}) {
         font-size: 30px;
         letter-spacing: 3px;
     }

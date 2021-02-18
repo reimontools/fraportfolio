@@ -1,6 +1,74 @@
 import React, {useRef} from "react";
 import ModalCarousel from "./ModalCarousel";
-import '../../styles/gallery-one.css';
+import styled from "styled-components";
+// import { mediumScreenSize } from "../../config/param.js";
+
+const ImgImageStyled = styled.img `
+    width: 100%;
+    text-align: center;
+    font-family: fontBrandon, sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    height: 100%;
+    object-fit: cover;
+`;
+
+const DivTextStyled = styled.div `
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms ease-out;
+    cursor: pointer;
+`;
+
+const DivFotoStyled = styled.div `
+    position: relative;
+    height: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 2vh;
+    grid-auto-flow: dense;
+`;
+
+const DivCardStyled = styled.div `
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+
+    &:hover ${ImgImageStyled} {
+        filter: blur(6px);
+    };
+    &:hover ${DivTextStyled} {
+        opacity: 1;
+        visibility: visible;
+    };
+    &:first-child {
+        grid-column-start: span 2;
+        grid-row-start: span 2;
+    };
+    &:nth-child(2n+3) {
+        grid-row-start: span 2;
+    };
+`;
+
+const DivImageStyled = styled.div `
+    width: 100%;
+    text-align: center;
+    font-family: fontBrandon, sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+`;
+
+const DivGalleryStyled = styled.div `
+    width: auto;
+`;
 
 const GalleryOne = (props) => {
     const modalRef = useRef();
@@ -9,19 +77,21 @@ const GalleryOne = (props) => {
     };
     
     return (
-        <div className="gallery">
-            <ModalCarousel ref={modalRef} images={props.images}/>
-            <div className="photo-container">
+        <DivGalleryStyled>
+            <DivFotoStyled>
+                <ModalCarousel ref={modalRef} images={props.images}/>
                 {props.images && props.images.map((image, idx) => (
-                    <div onClick={() => openModal(idx, props.images.length - 1)} className="card-container" key={idx}>
-                        <img className="image-container" src={image.portraitImage.asset.url} alt={image.portraitImage.alt} />
-                        <div className="text-container">
-                            <div className="image-name-container">{image.title}</div>
-                        </div>
-                    </div>
+                    <DivCardStyled onClick={() => openModal(idx, props.images.length - 1)} key={idx}>
+                        <ImgImageStyled src={image.portraitImage.asset.url} alt={image.portraitImage.alt} />
+                        <DivTextStyled>
+                            <DivImageStyled>
+                                {image.title}
+                            </DivImageStyled>
+                        </DivTextStyled>
+                    </DivCardStyled>
                 ))}
-            </div>
-        </div>
+            </DivFotoStyled>
+        </DivGalleryStyled>
     );
 };
 

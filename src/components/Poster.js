@@ -8,7 +8,7 @@ const Poster = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(fetchPortraits, 3000);
+        setTimeout(fetchPortraits, 1500);
     }, []);
 
     const fetchPortraits = async () => {

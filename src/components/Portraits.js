@@ -8,7 +8,7 @@ export default function Portraits() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(fetchPortraits, 300);
+        setTimeout(fetchPortraits, 1500);
     }, []);
 
     const fetchPortraits = async () => {
