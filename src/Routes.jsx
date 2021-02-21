@@ -2,7 +2,6 @@ import React from 'react'
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import styled from "styled-components";
 
-import Header from './components/useful/Nav/Header.jsx';
 import Logo from './components/useful/Nav/Logo.jsx';
 import NavBar from './components/useful/Nav/NavBar.jsx';
 
@@ -28,7 +27,6 @@ const DivRoutesStyled = styled.div `
         width: 100%;
         left: 0;
     };
-
 `;
 
 const DivMainPageStyled = styled.div `
@@ -43,7 +41,6 @@ const DivMainPageStyled = styled.div `
 const Routes = () => {
     return (
         <BrowserRouter>
-            {/* <Header /> */}
             <Logo />
             <NavBar />
             <DivRoutesStyled>

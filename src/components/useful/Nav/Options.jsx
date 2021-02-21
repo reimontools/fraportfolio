@@ -55,18 +55,16 @@ const NavOptionsStyled = styled.nav `
 const Options = () => {
     const { open, setOpen } = useContext(AppContext);
     return (
-        <>
-            <NavOptionsStyled open={ open }>
-                <ul>
-                    <li><NavLink onClick={() => setOpen(!open)} to="/" activeClassName="active" exact>portraits</NavLink></li>                            
-                    <li><NavLink onClick={() => setOpen(!open)} to="/professional" activeClassName="active">professional</NavLink></li>
-                    <li><NavLink onClick={() => setOpen(!open)} to="/poster" activeClassName="active">poster</NavLink></li>
-                    <li><NavLink onClick={() => setOpen(!open)} to="/picturebooks" activeClassName="active">picture books</NavLink></li>
-                    <li><NavLink onClick={() => setOpen(!open)} to="/bitsandpieces" activeClassName="active">bits and pieces</NavLink></li>
-                    <li><NavLink onClick={() => setOpen(!open)} to="/about" activeClassName="active">about</NavLink></li>
-                </ul>
-            </NavOptionsStyled>
-        </>
+        <NavOptionsStyled open={ open }>
+            <ul>
+                <li><NavLink onClick={() => setOpen(!open)} to="/" activeClassName="active" exact>portraits</NavLink></li>                            
+                <li><NavLink onClick={() => setOpen(!open)} to="/professional" activeClassName="active">professional</NavLink></li>
+                <li><NavLink onClick={() => setOpen(!open)} to="/poster" activeClassName="active">poster</NavLink></li>
+                <li><NavLink onClick={() => setOpen(!open)} to="/picturebooks" activeClassName="active">picture books</NavLink></li>
+                <li><NavLink onClick={() => setOpen(!open)} to="/bitsandpieces" activeClassName="active">bits and pieces</NavLink></li>
+                <li><NavLink onClick={() => setOpen(!open)} to="/about" activeClassName="active">about</NavLink></li>
+            </ul>
+        </NavOptionsStyled>
     );
 };
 

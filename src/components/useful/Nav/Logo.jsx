@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { mediumScreenSize } from "../../../config/param.js";
 
 const DivLogoStyled = styled.div `
-    position: absolute;
+    position: fixed;
     left: 3%;
     top: 2%;
     /* transform: translateY(100%); */

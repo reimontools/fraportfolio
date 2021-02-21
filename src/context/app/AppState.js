@@ -4,10 +4,7 @@ import AppContext from "./AppContext";
 const UserState = props => {
     const [open, setOpen] = useState(false);
     return (
-        <AppContext.Provider value={{
-            open,
-            setOpen
-        }}>
+        <AppContext.Provider value={{open, setOpen}}>
             {props.children}
         </AppContext.Provider>
     );

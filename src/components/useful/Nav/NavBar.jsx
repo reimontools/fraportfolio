@@ -8,12 +8,13 @@ const DivBurgerStyled = styled.div `
     display: none;
     @media (max-width: ${mediumScreenSize}) {
         display: block;
-        position: absolute;
+        position: fixed;
         right: 3%;
         top: 2%;
         transform: translateY(100%);
         z-index: 1000;
         width: auto;
+        cursor: pointer;
         div {
             width: 25px;
             height: 3px;
@@ -21,7 +22,6 @@ const DivBurgerStyled = styled.div `
             margin: 3px;
             border-radius: 5px;
             transition: all .3s ease-in-out;
-            cursor: pointer;
 
             &:nth-child(1) {
                 transform: ${({ open }) => open ? 'translateY(6px) rotate(225deg)' : 'translateY(0) rotate(0)'};
