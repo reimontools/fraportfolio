@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import sanityClient from "../config/client.js";
-import GalleryOne from "./useful/GalleryOne";
+import GalleryTwo from "./useful/GalleryTwo";
 import Loading from "./useful/Loading.jsx";
 
-export default function Portraits() {
+const Portraits = () => {
     const [portraitsData, setPortraitsData] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(fetchPortraits, 1500);
+        setTimeout(fetchPortraits, 500);
     }, []);
 
     const fetchPortraits = async () => {
@@ -32,8 +32,10 @@ export default function Portraits() {
         <>
             {loading 
                 ? <Loading/>
-                : <GalleryOne images={portraitsData}/>
+                : <GalleryTwo images={portraitsData}/>
             }
         </>
     );
 };
+
+export default Portraits;
