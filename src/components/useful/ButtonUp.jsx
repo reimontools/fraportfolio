@@ -4,7 +4,7 @@ import { BsArrowUpShort } from "react-icons/bs";
 
 const DivButtonUpStyled = styled.div `
     position: fixed;
-    bottom: 2%;
+    bottom: 3%;
     right: 4%;
     width: 40px;
     height: 40px;

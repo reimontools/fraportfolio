@@ -8,22 +8,9 @@ import ModalCarousel from "./ModalCarousel";
 const resSize = {[smallScreenSize.replace("px", "")]: 1, [mediumScreenSize.replace("px", "")]: 3};
     
 const DivGalleryTwoStyled = styled.div `
-    /* margin-top:10px;  */
     img {
         width: 100%;
-        display: block;
-        /* border-radius: 15px;  */
-    };
-    .img-container {
-        position: relative;
-        cursor: zoom-in;
-        &:hover img {
-            filter: blur(6px);
-        };
-        &:hover .text-container {
-            opacity: 1;
-            visibility: visible;
-        };
+        display: block; 
     };
     .text-container {
         position: absolute;
@@ -37,6 +24,21 @@ const DivGalleryTwoStyled = styled.div `
         font-family: fontBrandon, sans-serif;
         font-size: 20px;
         color: #ffffff; 
+    }
+    .img-container {
+        position: relative;
+    }
+    @media (min-width: ${mediumScreenSize}) {
+        .img-container {
+            cursor: zoom-in;
+            &:hover img {
+                filter: blur(6px);
+            };
+            &:hover .text-container {
+                opacity: 1;
+                visibility: visible;
+            };
+        };
     };
 `;
 
@@ -49,7 +51,7 @@ const GalleryTwo = (props) => {
         <DivGalleryTwoStyled>
             <ModalCarousel ref={modalRef} images={props.images}/>
             <ResponsiveMasonry columnsCountBreakPoints={resSize}>
-                <Masonry gutter="12px">
+                <Masonry gutter="10px">
                     {props.images && props.images.map((image, idx) => (
                         <div key={idx} className="img-container" onClick={() => openModal(idx, props.images.length - 1)}>
                             <img src={image.portraitImage.asset.url} alt={image.portraitImage.alt} />
