@@ -7,8 +7,12 @@ const DivBurgerStyled = styled.div `
     display: none;
     @media (max-width: ${mediumScreenSize}) {
         display: block;
-        padding-right: 3%;
+        position: absolute;
+        right: 3%;
+        top: 2%;
+        transform: translateY(100%);
         z-index: 1000;
+        width: auto;
         div {
             width: 25px;
             height: 3px;

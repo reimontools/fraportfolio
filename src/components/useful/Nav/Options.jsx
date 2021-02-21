@@ -9,6 +9,7 @@ const NavOptionsStyled = styled.nav `
     width: 15%;
     left: 5%;
     bottom: 0;
+    z-index:500;
     ul {
         list-style: none;
         height: 100%;
@@ -39,6 +40,7 @@ const NavOptionsStyled = styled.nav `
         left: 0;
         overflow: hidden;
         transition: all .5s ease-in-out;
+        background-color: white;
         bottom: ${({ open }) => open ? '0' : '100%'};
         ul {
             padding: 0;

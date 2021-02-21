@@ -1,1 +1,2 @@
-export const mediumScreenSize = "768px";
+export const smallScreenSize = "350px";
+export const mediumScreenSize = "1000px";

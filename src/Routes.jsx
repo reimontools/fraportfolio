@@ -3,6 +3,9 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import styled from "styled-components";
 
 import Header from './components/useful/Nav/Header.jsx';
+import Logo from './components/useful/Nav/Logo.jsx';
+import NavBar from './components/useful/Nav/NavBar.jsx';
+
 import Portraits from "./components/Portraits";
 import Professional from "./components/Professional";
 import Poster from "./components/Poster";
@@ -40,7 +43,9 @@ const DivMainPageStyled = styled.div `
 const Routes = () => {
     return (
         <BrowserRouter>
-            <Header />
+            {/* <Header /> */}
+            <Logo />
+            <NavBar />
             <DivRoutesStyled>
                 <DivMainPageStyled>
                     <Switch>                        

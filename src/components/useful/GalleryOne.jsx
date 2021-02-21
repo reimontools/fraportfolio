@@ -32,7 +32,7 @@ const DivFotoStyled = styled.div `
     margin: auto;
     display: grid;
     grid-template-columns: repeat(4, auto);
-    grid-gap: 2vh;
+    grid-gap: 1%;
     grid-auto-flow: dense;
 `;
 
