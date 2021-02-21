@@ -39,7 +39,7 @@ const ButtonUp = () => {
         var current = document.documentElement.scrollTop;
         if (current > 0) {
             window.requestAnimationFrame(up);
-            window.scrollTo(0, current - (current / 8));
+            window.scrollTo(0, current - (current / 6));
         };
     };
 

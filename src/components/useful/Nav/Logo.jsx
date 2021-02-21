@@ -7,7 +7,7 @@ const DivLogoStyled = styled.div `
     left: 3%;
     top: 2%;
     /* transform: translateY(100%); */
-    z-index: 1000;
+    z-index: 500;
     width: auto;
     font-family: fontAliens;
     font-size: 40px;

@@ -10,7 +10,7 @@ const NavBarStyled = styled.nav `
     width: 15%;
     left: 5%;
     bottom: 0;
-    z-index:500;
+    z-index:600;
     ul {
         list-style: none;
         height: 100%;

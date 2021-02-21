@@ -11,7 +11,7 @@ const DivBurgerStyled = styled.div `
         right: 3%;
         top: 2%;
         padding: 15px 0 15px 15px;
-        transform: translateY(20%);
+        transform: translateY(15%);
         z-index: 1000;
         width: auto;
         cursor: pointer;
