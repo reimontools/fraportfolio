@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { mediumScreenSize } from "../../../config/param.js";
 import AppContext from "../../../context/app/AppContext.js";
 
-const NavOptionsStyled = styled.nav `
+const NavBarStyled = styled.nav `
     position: fixed;
     height: 100vh;
     width: 15%;
@@ -52,10 +52,10 @@ const NavOptionsStyled = styled.nav `
     }
 `;
 
-const Options = () => {
+const Bar = () => {
     const { open, setOpen } = useContext(AppContext);
     return (
-        <NavOptionsStyled open={ open }>
+        <NavBarStyled open={ open }>
             <ul>
                 <li><NavLink onClick={() => setOpen(!open)} to="/" activeClassName="active" exact>portraits</NavLink></li>                            
                 <li><NavLink onClick={() => setOpen(!open)} to="/professional" activeClassName="active">professional</NavLink></li>
@@ -64,8 +64,8 @@ const Options = () => {
                 <li><NavLink onClick={() => setOpen(!open)} to="/bitsandpieces" activeClassName="active">bits and pieces</NavLink></li>
                 <li><NavLink onClick={() => setOpen(!open)} to="/about" activeClassName="active">about</NavLink></li>
             </ul>
-        </NavOptionsStyled>
+        </NavBarStyled>
     );
 };
 
-export default Options;
+export default Bar;

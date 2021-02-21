@@ -9,13 +9,10 @@ const DivLogoStyled = styled.div `
     /* transform: translateY(100%); */
     z-index: 1000;
     width: auto;
-
     font-family: fontAliens;
     font-size: 40px;
     letter-spacing: 3px;
     color: rgb(99, 99, 99);
-    
-    
 
     @media screen and (max-width: ${mediumScreenSize}) {
         font-size: 30px;

@@ -2,9 +2,7 @@ import React from 'react'
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import styled from "styled-components";
 
-import Logo from './components/useful/Nav/Logo.jsx';
-import NavBar from './components/useful/Nav/NavBar.jsx';
-
+import Bar from './components/useful/Nav/Bar.jsx';
 import Portraits from "./components/Portraits";
 import Professional from "./components/Professional";
 import Poster from "./components/Poster";
@@ -22,7 +20,6 @@ const DivRoutesStyled = styled.div `
     display: flex;
     justify-content: center; 
     align-content: center;
-
     @media (max-width: ${mediumScreenSize}) {
         width: 100%;
         left: 0;
@@ -41,8 +38,7 @@ const DivMainPageStyled = styled.div `
 const Routes = () => {
     return (
         <BrowserRouter>
-            <Logo />
-            <NavBar />
+            <Bar />
             <DivRoutesStyled>
                 <DivMainPageStyled>
                     <Switch>                        

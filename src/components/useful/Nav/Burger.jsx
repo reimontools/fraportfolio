@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import styled from "styled-components";
-import Options from './Options';
 import { mediumScreenSize } from "../../../config/param.js";
 import AppContext from "../../../context/app/AppContext.js";
 
@@ -22,7 +21,6 @@ const DivBurgerStyled = styled.div `
             margin: 3px;
             border-radius: 5px;
             transition: all .3s ease-in-out;
-
             &:nth-child(1) {
                 transform: ${({ open }) => open ? 'translateY(6px) rotate(225deg)' : 'translateY(0) rotate(0)'};
             };  
@@ -36,18 +34,18 @@ const DivBurgerStyled = styled.div `
     };
 `;
 
-const NavBar = () => {
+const Burger = () => {
     const { open, setOpen } = useContext(AppContext);
     return (
         <>
-            <DivBurgerStyled open={open} onClick={() => setOpen(!open)}>
+            <DivBurgerStyled open={ open } onClick={() => setOpen(!open)}>
                 <div />
                 <div />
                 <div />
             </DivBurgerStyled >
-            <Options />
+            
         </>
     );
 };
 
-export default NavBar;
+export default Burger;
