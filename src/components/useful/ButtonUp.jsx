@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
-import { BsChevronUp } from "react-icons/bs";
+import { BsArrowUpShort } from "react-icons/bs";
 
 const DivButtonUpStyled = styled.div `
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 2%;
+    right: 4%;
     width: 40px;
     height: 40px;
     display: flex;
@@ -14,13 +14,10 @@ const DivButtonUpStyled = styled.div `
     background: white;
     color: rgb(99, 99, 99);
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 30px;
     transform: ${({ showMe }) => showMe ? 'scale(1)' : 'scale(0)'};
     transition: all 300ms ease;
     cursor: pointer;
-    &:hover {
-        transform: scale(1.2);
-    };
 `;
 
 const ButtonUp = () => {
@@ -48,7 +45,7 @@ const ButtonUp = () => {
 
     return (
         <DivButtonUpStyled  showMe={ showMe } id="button-up" onClick={() => up()}>
-            <BsChevronUp />
+            <BsArrowUpShort />
         </DivButtonUpStyled>
     );
 };
