@@ -6,15 +6,15 @@ const DivButtonUpStyled = styled.div `
     position: fixed;
     bottom: 3%;
     right: 4%;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
     background: white;
     color: rgb(99, 99, 99);
     border-radius: 50%;
-    font-size: 30px;
+    font-size: 35px;
     transform: ${({ showMe }) => showMe ? 'scale(1)' : 'scale(0)'};
     transition: all 300ms ease;
     cursor: pointer;

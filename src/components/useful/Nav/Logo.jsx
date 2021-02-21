@@ -15,6 +15,7 @@ const DivLogoStyled = styled.div `
     color: rgb(99, 99, 99);
 
     @media screen and (max-width: ${mediumScreenSize}) {
+        position: absolute;
         font-size: 30px;
         letter-spacing: 3px;
     }
