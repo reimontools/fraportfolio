@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Routes from './Routes.jsx';
 import './styles/app.css';
 
+import AppState from './context/app/AppState';
+
 const DivBodyStyled = styled.div `
     height: 100vh;
     width: 100vw;
@@ -10,9 +12,11 @@ const DivBodyStyled = styled.div `
 
 function App() {
     return (
-        <DivBodyStyled>
-            <Routes />
-        </DivBodyStyled>
+        <AppState>
+            <DivBodyStyled>
+                <Routes />
+            </DivBodyStyled>
+        </AppState>
     );
 };
 

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { mediumScreenSize } from "../../../config/param.js";
+import AppContext from "../../../context/app/AppContext.js";
 
 const NavOptionsStyled = styled.nav `
     position: fixed;
@@ -51,17 +52,18 @@ const NavOptionsStyled = styled.nav `
     }
 `;
 
-const Options = ({ open }) => {
+const Options = () => {
+    const { open, setOpen } = useContext(AppContext);
     return (
         <>
             <NavOptionsStyled open={ open }>
                 <ul>
-                    <li><NavLink to="/" activeClassName="active" exact>portraits</NavLink></li>                            
-                    <li><NavLink to="/professional" activeClassName="active">professional</NavLink></li>
-                    <li><NavLink to="/poster" activeClassName="active">poster</NavLink></li>
-                    <li><NavLink to="/picturebooks" activeClassName="active">picture books</NavLink></li>
-                    <li><NavLink to="/bitsandpieces" activeClassName="active">bits and pieces</NavLink></li>
-                    <li><NavLink to="/about" activeClassName="active">about</NavLink></li>
+                    <li><NavLink onClick={() => setOpen(!open)} to="/" activeClassName="active" exact>portraits</NavLink></li>                            
+                    <li><NavLink onClick={() => setOpen(!open)} to="/professional" activeClassName="active">professional</NavLink></li>
+                    <li><NavLink onClick={() => setOpen(!open)} to="/poster" activeClassName="active">poster</NavLink></li>
+                    <li><NavLink onClick={() => setOpen(!open)} to="/picturebooks" activeClassName="active">picture books</NavLink></li>
+                    <li><NavLink onClick={() => setOpen(!open)} to="/bitsandpieces" activeClassName="active">bits and pieces</NavLink></li>
+                    <li><NavLink onClick={() => setOpen(!open)} to="/about" activeClassName="active">about</NavLink></li>
                 </ul>
             </NavOptionsStyled>
         </>

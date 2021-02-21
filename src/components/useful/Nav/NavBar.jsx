@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import styled from "styled-components";
 import Options from './Options';
 import { mediumScreenSize } from "../../../config/param.js";
+import AppContext from "../../../context/app/AppContext.js";
 
 const DivBurgerStyled = styled.div `
     display: none;
@@ -36,7 +37,7 @@ const DivBurgerStyled = styled.div `
 `;
 
 const NavBar = () => {
-    const [open, setOpen] = useState(false);
+    const { open, setOpen } = useContext(AppContext);
     return (
         <>
             <DivBurgerStyled open={open} onClick={() => setOpen(!open)}>
@@ -44,7 +45,7 @@ const NavBar = () => {
                 <div />
                 <div />
             </DivBurgerStyled >
-            <Options open={open} />
+            <Options />
         </>
     );
 };
