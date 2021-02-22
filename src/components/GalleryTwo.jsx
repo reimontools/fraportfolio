@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
 import styled from "styled-components";
-import { smallScreenSize, mediumScreenSize } from "../../config/param.js";
+import { smallScreenSize, mediumScreenSize } from "../config/param.js";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 import ModalCarousel from "./ModalCarousel";
 

@@ -1,49 +1,18 @@
 import React from 'react'
-import {BrowserRouter, Route, Switch} from "react-router-dom";
-import styled from "styled-components";
-import { mediumScreenSize } from "./config/param.js";
-
-import Bar from './components/useful/Nav/Bar.jsx';
-
-import Portraits from "./components/Portraits";
-import Professional from "./components/Professional";
-import Poster from "./components/Poster";
-import PictureBooks from "./components/PictureBooks";
-import BitsAndPieces from "./components/BitsAndPieces";
-import About from "./components/About";
-import PageNotFound from "./components/PageNotFound";
-
-// const DivRoutesStyled = styled.div `
-//     position: relative;
-//     height: auto;
-//     width: 80%;
-//     left: 20%;
-//     display: flex;
-//     justify-content: center; 
-//     align-content: center;
-//     @media (max-width: ${mediumScreenSize}) {
-//         width: auto;
-//         left: 0;
-//     };
-// `;
-
-const DivRoutesStyled = styled.div `
-    height: auto;
-    left: 25%;
-    position: relative;
-    width: 65%;
-    /* border: 1px red solid; */
-    @media (max-width: ${mediumScreenSize}) {
-        width: auto;
-        left: 0;
-    };
-`;
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import NavBar from './components/NavBar.jsx';
+import Portraits from "./components/views/Portraits";
+import Professional from "./components/views/Professional";
+import Poster from "./components/views/Poster";
+import PictureBooks from "./components/views/PictureBooks";
+import BitsAndPieces from "./components/views/BitsAndPieces";
+import About from "./components/views/About";
+import PageNotFound from "./components/views/PageNotFound";
 
 const Routes = () => {
     return (
-        <BrowserRouter>
-            <Bar />
-            <DivRoutesStyled>
+        <Router>
+            <NavBar />
                 <Switch>                        
                     <Route component={Portraits} path='/' exact />
                     <Route component={Professional} path='/professional' />
@@ -53,8 +22,7 @@ const Routes = () => {
                     <Route component={About} path='/about' />
                     <Route component={PageNotFound} />
                 </Switch>
-            </DivRoutesStyled>
-        </BrowserRouter>
+        </Router>
     );
 };
 

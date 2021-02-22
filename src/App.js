@@ -1,26 +1,14 @@
 import React from "react";
 import AppState from './context/app/AppState';
 import './styles/app.css';
-import styled from "styled-components";
 import Routes from './Routes.jsx';
-import Logo from './components/useful/Nav/Logo.jsx';
-import Burger from './components/useful/Nav/Burger.jsx';
-import ButtonUp from './components/useful/ButtonUp.jsx';
-
-const DivBodyStyled = styled.div `
-    height: 100vh;
-    width: 100vw;
-`;
+import ButtonUp from './components/ButtonUp.jsx';
 
 function App() {
     return (
         <AppState>
-            {/* <DivBodyStyled className="ste-body"> */}
-                <Logo />
-                <Burger />
-                <Routes />
-                <ButtonUp />
-            {/* </DivBodyStyled> */}
+            <Routes />
+            <ButtonUp /> 
         </AppState>
     );
 };
