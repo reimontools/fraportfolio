@@ -37,9 +37,11 @@ const NavBarStyled = styled.nav `
     }
 
     @media (max-width: ${mediumScreenSize}) {
+        position: fixed;
         width: 100vw;
         height: 100vw;
         left: 0;
+        bottom: 0;
         overflow: hidden;
         transition: all .5s ease-in-out;
         background-color: white;
