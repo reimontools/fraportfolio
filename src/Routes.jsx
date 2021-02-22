@@ -42,7 +42,7 @@ const DivRoutesStyled = styled.div `
 const Routes = () => {
     return (
         <BrowserRouter>
-            <Bar />
+            {/* <Bar /> */}
             <DivRoutesStyled>
                 <Switch>                        
                     <Route component={Portraits} path='/' exact />
