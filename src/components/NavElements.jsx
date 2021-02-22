@@ -59,7 +59,7 @@ export const Bar = styled.nav `
     width: 15%;
     height: 100%;
     left: 5%;
-    bottom: 0;
+    top: 0;
     z-index:600;
     ul {
         list-style: none;
@@ -89,9 +89,9 @@ export const Bar = styled.nav `
     @media (max-width: ${mediumScreenSize}) {
         width: 100%;
         /* height: 200px; */
-        /* top: 0; */
+        top: 0;
         left: 0;
-        transition: all .5s ease-in-out;
+        /* transition: all .5s ease-in-out; */
         background-color: white;
         display: ${({ open }) => open ? 'block' : 'none'};
         overflow: hidden; 
@@ -100,6 +100,7 @@ export const Bar = styled.nav `
             height: 100%;
             align-items: center;
             justify-content: space-evenly;
-        }   
-    }
+            overflow: hidden; 
+        };
+    };
 `;
