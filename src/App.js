@@ -15,12 +15,12 @@ const DivBodyStyled = styled.div `
 function App() {
     return (
         <AppState>
-            <DivBodyStyled className="ste-body">
+            {/* <DivBodyStyled className="ste-body"> */}
                 <Logo />
                 <Burger />
                 <Routes />
                 <ButtonUp />
-            </DivBodyStyled>
+            {/* </DivBodyStyled> */}
         </AppState>
     );
 };

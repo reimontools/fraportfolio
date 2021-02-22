@@ -32,7 +32,7 @@ const DivRoutesStyled = styled.div `
     left: 25%;
     position: relative;
     width: 65%;
-    border: 1px red solid;
+    /* border: 1px red solid; */
     @media (max-width: ${mediumScreenSize}) {
         width: auto;
         left: 0;
