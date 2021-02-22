@@ -6,8 +6,8 @@ import AppContext from "../../../context/app/AppContext.js";
 
 const NavBarStyled = styled.nav `
     position: fixed;
-    height: 100vh;
     width: 15%;
+    height: 100%;
     left: 5%;
     bottom: 0;
     z-index:600;
@@ -38,6 +38,7 @@ const NavBarStyled = styled.nav `
 
     @media (max-width: ${mediumScreenSize}) {
         width: 100vw;
+        height: 100%;
         left: 0;
         overflow: hidden;
         transition: all .5s ease-in-out;
