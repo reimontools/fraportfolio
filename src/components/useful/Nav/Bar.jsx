@@ -43,7 +43,8 @@ const NavBarStyled = styled.nav `
         overflow: hidden;
         transition: all .5s ease-in-out;
         background-color: white;
-        bottom: ${({ open }) => open ? '0' : '100%'};
+        display: ${({ open }) => open ? 'block' : 'none'};
+        bottom: ${({ open }) => open ? '0' : '150%'};
         ul {
             padding: 0;
             height: 100vh;
