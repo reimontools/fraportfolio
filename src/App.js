@@ -15,7 +15,7 @@ const DivBodyStyled = styled.div `
 function App() {
     return (
         <AppState>
-            <DivBodyStyled>
+            <DivBodyStyled className="ste-body">
                 <Logo />
                 <Burger />
                 <Routes />

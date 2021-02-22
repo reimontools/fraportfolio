@@ -9,7 +9,7 @@ const LoadingStyled = styled.div `
     height: 40px;
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
