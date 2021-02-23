@@ -1,5 +1,5 @@
 import React, {useRef} from "react";
-import ModalCarousel from "./ModalCarousel";
+import ModalCarousel from "../ModalCarousel";
 import styled from "styled-components";
 // import { mediumScreenSize } from "../../config/param.js";
 

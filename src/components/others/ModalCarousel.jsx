@@ -1,6 +1,6 @@
 import React, { useState, forwardRef, useImperativeHandle, useEffect } from "react";
 import ReactDOM from "react-dom";
-import '../styles/modal-carousel.css';
+import '../../styles/modal-carousel.css';
 import { BsChevronLeft, BsChevronRight, BsX, BsArrowsAngleExpand, BsArrowsAngleContract } from "react-icons/bs"; //https://react-icons.github.io/react-icons/
 
 const ModalCarousel = forwardRef((props, ref) => {

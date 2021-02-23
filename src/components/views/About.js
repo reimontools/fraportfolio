@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import sanityClient from "../../config/client.js";
-import GalleryTwo from "../GalleryTwo";
-import Loading from "../Loading.jsx";
+import GalleryTwo from "../others/GalleryTwo";
+import Loading from "../others/Loading.jsx";
 
 const About = () => {
     const [portraitsData, setPortraitsData] = useState(null);

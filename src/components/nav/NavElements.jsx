@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mediumScreenSize } from "../config/param.js";
+import { mediumScreenSize } from "../../config/param.js";
 
 /*LOGO#####################################################*/
 export const Logo = styled.div `

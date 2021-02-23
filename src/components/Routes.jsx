@@ -1,13 +1,13 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import NavBar from './components/NavBar.jsx';
-import Portraits from "./components/views/Portraits";
-import Professional from "./components/views/Professional";
-import Poster from "./components/views/Poster";
-import PictureBooks from "./components/views/PictureBooks";
-import BitsAndPieces from "./components/views/BitsAndPieces";
-import About from "./components/views/About";
-import PageNotFound from "./components/views/PageNotFound";
+import NavBar from './nav/NavBar';
+import Portraits from "./views/Portraits";
+import Professional from "./views/Professional";
+import Poster from "./views/Poster";
+import PictureBooks from "./views/PictureBooks";
+import BitsAndPieces from "./views/BitsAndPieces";
+import About from "./views/About";
+import PageNotFound from "./views/PageNotFound";
 
 const Routes = () => {
     return (
