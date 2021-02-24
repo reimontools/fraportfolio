@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { mediumScreenSize } from "../../config/param.js";
 
@@ -42,14 +43,42 @@ export const Burger = styled.div `
             transition: all .3s ease-in-out;
             &:nth-child(1) {
                 transform: ${({ open }) => open ? 'translateY(6px) rotate(225deg)' : 'translateY(0) rotate(0)'};
-            };  
+            };
             &:nth-child(2) {
                 opacity: ${({ open }) => open ? 0 : 1};
-            };  
+            };
             &:nth-child(3) {
                 transform: ${({ open }) => open ? 'translateY(-6px) rotate(-225deg)' : 'translateY(0) rotate(0)'};
             };
         };
+    };
+`;
+
+/*LINKS#####################################################*/
+export const Links = styled(NavLink)`
+    font-family: fontBrandon, sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+    color: rgb(55, 55, 55);
+    text-decoration: none;
+    padding-bottom: 13px;
+    
+    &:hover {
+        color: rgb(186, 218, 85);
+    };
+`;
+
+/*LINKS#####################################################*/
+export const Links2 = styled(NavLink)`
+    font-family: fontBrandon, sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+    color: rgb(55, 55, 55);
+    text-decoration: none;
+    padding-bottom: 13px;
+    /* padding-left: 13px; */
+    &:hover {
+        color: rgb(186, 218, 85);
     };
 `;
 
@@ -60,47 +89,22 @@ export const Bar = styled.nav `
     height: 100%;
     left: 5%;
     top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     z-index:600;
-    ul {
-        list-style: none;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-    }
-    li {
-        padding-bottom: 10px;
-    }
-    a {
-        font-family: fontBrandon, sans-serif;
-        font-size: 14px;
-        font-weight: bolder;
-        color: rgb(55, 55, 55);
-        text-decoration: none;
-    }
-    a:hover {
-        color: rgb(186, 218, 85);
-    }
     .active {
         color: rgb(186, 218, 85);
     }
 
     @media (max-width: ${mediumScreenSize}) {
         width: 100%;
-        /* height: 200px; */
-        top: 0;
         left: 0;
-        /* transition: all .5s ease-in-out; */
         background-color: white;
-        display: ${({ open }) => open ? 'block' : 'none'};
+        display: ${({ open }) => open ? 'flex' : 'none'};
+        align-items: center;
+        justify-content: space-evenly;
         overflow: hidden; 
-        ul {
-            padding: 0;
-            height: 100%;
-            align-items: center;
-            justify-content: space-evenly;
-            overflow: hidden; 
-        };
     };
 `;

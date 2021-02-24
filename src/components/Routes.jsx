@@ -13,15 +13,15 @@ const Routes = () => {
     return (
         <Router>
             <NavBar />
-                <Switch>                        
-                    <Route component={Portraits} path='/' exact />
-                    <Route component={Professional} path='/professional' />
-                    <Route component={Poster} path='/poster' />
-                    <Route component={PictureBooks} path='/picturebooks' />
-                    <Route component={BitsAndPieces} path='/bitsandpieces' />
-                    <Route component={About} path='/about' />
-                    <Route component={PageNotFound} />
-                </Switch>
+            <Switch>                        
+                <Route component={Portraits} path='/' exact />
+                <Route component={Professional} path='/professional' exact />
+                <Route component={Poster} path='/poster' exact />
+                <Route component={PictureBooks} path='/picturebooks' exact />
+                <Route component={BitsAndPieces} path='/bitsandpieces' exact />
+                <Route component={About} path='/about' exact />
+                <Route component={PageNotFound} />
+            </Switch>
         </Router>
     );
 };

@@ -1,33 +1,29 @@
-import React, { useContext } from 'react'
-import { NavLink } from "react-router-dom";
+import React, { useState, useContext } from 'react'
 import AppContext from "../../context/app/AppContext.js";
-import { Logo, Burger, Bar } from './NavElements.jsx';
+import { navElements } from "../../config/param.js";
+import { Logo, Burger, Bar } from './NavBarStyled.jsx';
+import Element from './Element.jsx';
 
 const NavBar = () => {
-    const { open, setOpen } = useContext(AppContext);
+    const { navBarState, setNavBarState } = useContext(AppContext);
     
     const handleNavBar = () => {
-        document.getElementsByTagName('body')[0].style.overflow = open ? 'visible' : 'hidden';
-        setOpen(!open);
+        document.getElementsByTagName('body')[0].style.overflow = navBarState ? 'visible' : 'hidden';
+        setNavBarState(!navBarState);
     };
-
+    
     return (
         <>
             <Logo>Francesca<br/>Pusceddu</Logo>
-            <Burger open={ open } onClick={() => handleNavBar()}>
+            <Burger open={ navBarState } onClick={() => handleNavBar()}>
                 <div />
                 <div />
                 <div />
             </Burger>
-            <Bar open={ open }>
-                <ul>
-                    <li><NavLink onClick={() => handleNavBar()} to="/" activeClassName="active" exact>portraits</NavLink></li>                            
-                    <li><NavLink onClick={() => handleNavBar()} to="/professional" activeClassName="active">professional</NavLink></li>
-                    <li><NavLink onClick={() => handleNavBar()} to="/poster" activeClassName="active">poster</NavLink></li>
-                    <li><NavLink onClick={() => handleNavBar()} to="/picturebooks" activeClassName="active">picture books</NavLink></li>
-                    <li><NavLink onClick={() => handleNavBar()} to="/bitsandpieces" activeClassName="active">bits and pieces</NavLink></li>
-                    <li><NavLink onClick={() => handleNavBar()} to="/about" activeClassName="active">about</NavLink></li>
-                </ul>
+            <Bar open={ navBarState }>
+                {navElements.map((item, index) => {
+                    return <Element item={item} key={index}/>;
+                })}
             </Bar>
         </>
     );

@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import AppContext from "./AppContext";
 
-const UserState = props => {
-    const [open, setOpen] = useState(false);
+const AppState = props => {
+    const [navBarState, setNavBarState] = useState(false);
     return (
-        <AppContext.Provider value={{open, setOpen}}>
+        <AppContext.Provider value={{navBarState, setNavBarState}}>
             {props.children}
         </AppContext.Provider>
     );
 };
 
-export default UserState;
+export default AppState;

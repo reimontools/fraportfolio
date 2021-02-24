@@ -1,4 +1,4 @@
 import React from "react";
 export default function PageNotFound() {
-    return <></>
+    return <>No pasa nada</>
 }
