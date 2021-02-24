@@ -6,15 +6,15 @@ import { mediumScreenSize } from "../../config/param.js";
 
 const Element = ({ item }) => {
     const [subNav, setSubNav] = useState(false);
-    const { navBarState, setNavBarState } = useContext(AppContext);
+    const { setNavBarState } = useContext(AppContext);
 
     const handleNavBar = () => {
+        setNavBarState(false);
         if (window.screen.width <= mediumScreenSize) {
-            document.getElementsByTagName('body')[0].style.overflow = navBarState ? 'visible' : 'hidden';
-        }
-        setNavBarState(!navBarState);
+            document.getElementsByTagName('body')[0].style.overflow = 'visible';
+        };
     };
-        
+
     return (
         <>
             <div style={{display: "flex", width: "100%", justifyContent: "center"}}>

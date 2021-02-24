@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { mediumScreenSize } from "../../config/param.js";
+import { mediumScreenSizePx } from "../../config/param.js";
 
 /*LOGO#####################################################*/
 export const Logo = styled.div `
@@ -14,7 +14,7 @@ export const Logo = styled.div `
     letter-spacing: 3px;
     color: rgb(99, 99, 99);
 
-    @media screen and (max-width: ${mediumScreenSize}) {
+    @media screen and (max-width: ${mediumScreenSizePx}) {
         position: fixed;
         font-size: 30px;
         letter-spacing: 3px;
@@ -24,7 +24,7 @@ export const Logo = styled.div `
 /*BURGER##################################################*/
 export const Burger = styled.div `
     display: none;
-    @media (max-width: ${mediumScreenSize}) {
+    @media (max-width: ${mediumScreenSizePx}) {
         display: block;
         position: fixed;
         right: 3%;
@@ -98,7 +98,7 @@ export const Bar = styled.nav `
         color: rgb(186, 218, 85);
     }
 
-    @media (max-width: ${mediumScreenSize}) {
+    @media (max-width: ${mediumScreenSizePx}) {
         width: 100%;
         left: 0;
         background-color: white;

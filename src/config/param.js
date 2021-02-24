@@ -1,5 +1,7 @@
-export const smallScreenSize = "350px";
-export const mediumScreenSize = "1000px";
+export const smallScreenSize = 350;
+export const mediumScreenSize = 1000;
+export const smallScreenSizePx = smallScreenSize + "px";
+export const mediumScreenSizePx = mediumScreenSize + "px";
 export const navElements = [
     {
         title: 'Portraits',
