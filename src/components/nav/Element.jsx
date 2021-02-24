@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import AppContext from "../../context/app/AppContext.js";
-import { Links, Links2 } from './NavBarStyled.jsx';
+import { Option, OptionContainer, IconContainer } from './NavBarStyled.jsx';
 import { BsArrowUpShort, BsArrowDownShort } from "react-icons/bs";
 import { mediumScreenSize } from "../../config/param.js";
 
@@ -17,26 +17,26 @@ const Element = ({ item }) => {
 
     return (
         <>
-            <div style={{display: "flex", width: "100%", justifyContent: "center"}}>
-                <Links onClick={() => handleNavBar()} to={item.path} activeClassName="active" exact>
+            <OptionContainer>
+                <Option onClick={() => handleNavBar()} to={item.path} activeClassName="active" exact>
                     {item.title}
-                </Links>
-                <div style={{position: "absolute", right:"25%", fontSize:"25px"}}>
+                </Option>
+                <IconContainer>
                     {item.subNav && subNav
                         ? <BsArrowUpShort onClick={() => setSubNav(!subNav)}/>
                         : item.subNav
                         ? <BsArrowDownShort onClick={() => setSubNav(!subNav)}/>
                         : null
                     }
-                </div>
-            </div>            
+                </IconContainer>
+            </OptionContainer>            
             {subNav && item.subNav.map((item, index) => {
                 return (
-                    <Links2 onClick={() => handleNavBar()} key={index} to={item.path} activeClassName="active" exact>
+                    <Option className="left" onClick={() => handleNavBar()} key={index} to={item.path} activeClassName="active" exact>
                         {item.title}
-                    </Links2>
+                    </Option>
                 );
-            })}    
+            })}
         </>
     );
 };

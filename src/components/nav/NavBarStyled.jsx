@@ -1,6 +1,7 @@
-import { NavLink } from "react-router-dom";
+
 import styled from "styled-components";
 import { mediumScreenSizePx } from "../../config/param.js";
+import { NavLink } from "react-router-dom";
 
 /*LOGO#####################################################*/
 export const Logo = styled.div `
@@ -24,7 +25,7 @@ export const Logo = styled.div `
 /*BURGER##################################################*/
 export const Burger = styled.div `
     display: none;
-    @media (max-width: ${mediumScreenSizePx}) {
+    @media screen and (max-width: ${mediumScreenSizePx}) {
         display: block;
         position: fixed;
         right: 3%;
@@ -54,34 +55,6 @@ export const Burger = styled.div `
     };
 `;
 
-/*LINKS#####################################################*/
-export const Links = styled(NavLink)`
-    font-family: fontBrandon, sans-serif;
-    font-size: 14px;
-    font-weight: bolder;
-    color: rgb(55, 55, 55);
-    text-decoration: none;
-    padding-bottom: 13px;
-    
-    &:hover {
-        color: rgb(186, 218, 85);
-    };
-`;
-
-/*LINKS#####################################################*/
-export const Links2 = styled(NavLink)`
-    font-family: fontBrandon, sans-serif;
-    font-size: 14px;
-    font-weight: bolder;
-    color: rgb(55, 55, 55);
-    text-decoration: none;
-    padding-bottom: 13px;
-    /* padding-left: 13px; */
-    &:hover {
-        color: rgb(186, 218, 85);
-    };
-`;
-
 /*BAR#####################################################*/
 export const Bar = styled.nav `
     position: fixed;
@@ -96,9 +69,14 @@ export const Bar = styled.nav `
     z-index:600;
     .active {
         color: rgb(186, 218, 85);
-    }
-
-    @media (max-width: ${mediumScreenSizePx}) {
+    };
+    .left {
+        padding-left: 20px;
+    };
+    @media screen and (max-width: ${mediumScreenSizePx}) {
+        .left {
+            padding-left: 0;
+        };
         width: 100%;
         left: 0;
         background-color: white;
@@ -107,4 +85,36 @@ export const Bar = styled.nav `
         justify-content: space-evenly;
         overflow: hidden; 
     };
+`;
+
+/*LINKCONTAINER##################################################*/
+export const OptionContainer = styled.div `
+    width: 100%; 
+    display: flex;
+    align-items: center;
+`;
+
+/*OPTION#####################################################*/
+export const Option = styled(NavLink)`
+    margin: 0;
+    font-family: fontBrandon, sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+    color: rgb(55, 55, 55);
+    text-decoration: none;
+    padding-bottom: 13px;
+    display: flex;
+    &:hover {
+       color: rgb(186, 218, 85);
+    };
+    @media screen and (max-width: ${mediumScreenSizePx}) {
+        margin: 0px auto;
+    };
+`;
+
+/*ICONCONTAINER##################################################*/
+export const IconContainer = styled.div `
+    position: absolute; 
+    right: 25%; 
+    font-size: 25px;
 `;
