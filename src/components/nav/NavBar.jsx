@@ -6,17 +6,17 @@ import Element from './Element.jsx';
 
 
 const NavBar = () => {
-    const { navBarState, setNavBarState, localParam, handleLocalParam } = useContext(AppContext);
+    const { navBarState, setNavBarState, logoState, updLogoState } = useContext(AppContext);
 
     const handleNavBar = () => {
         document.getElementsByTagName('body')[0].style.overflow = navBarState ? 'visible' : 'hidden';
         setNavBarState(!navBarState);
-    };
+    };    
 
     return (
         <>
-            <Logo autoHide={ localParam.autoHide } onClick={() => handleLocalParam({autoHide: !localParam.autoHide, showBtnUp: !localParam.showBtnUp})}>Francesca<br/>Pusceddu</Logo>
-            <Burger open={ navBarState } autoHide={ localParam.autoHide } onClick={() => handleNavBar()}>
+            <Logo autoHide={ logoState } onClick={() => updLogoState()}>Francesca<br/>Pusceddu</Logo>
+            <Burger open={ navBarState } autoHide={ logoState } onClick={() => handleNavBar()}>
                 <div />
                 <div />
                 <div />

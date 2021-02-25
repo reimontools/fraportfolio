@@ -1,16 +1,18 @@
 import React, {useState} from 'react';
 import AppContext from "./AppContext";
-import { getLocalStorage, setLocalStorage } from "../../helpers/StoreHelper";
+import { readLocalStorage, writeLocalStorage } from "../../helpers/StoreHelper";
 
 const AppState = props => {
     const [navBarState, setNavBarState] = useState(false);
-    const [localParam, setLocalParam] = useState(getLocalStorage);
-    const handleLocalParam = (param) => {
-        setLocalParam(param);
-        setLocalStorage(param);
+    const [logoState, setLogoState] = useState(readLocalStorage());
+
+    const updLogoState = () => {
+        writeLocalStorage(!logoState);
+        setLogoState(!logoState);
     };
+
     return (
-        <AppContext.Provider value={{navBarState, setNavBarState, localParam, handleLocalParam}}>
+        <AppContext.Provider value={{navBarState, setNavBarState, logoState, updLogoState}}>
             {props.children}
         </AppContext.Provider>
     );
