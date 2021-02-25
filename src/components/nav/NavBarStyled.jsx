@@ -8,7 +8,8 @@ export const Logo = styled.div `
     position: fixed;
     left: 3%;
     top: 2%;
-    z-index: 1000;
+    z-index: 500;
+    display: ${({ open }) => open ? "none" : "block"};
     width: auto;
     font-family: fontAliens;
     font-size: 40px;
@@ -61,7 +62,7 @@ export const Bar = styled.nav `
     width: 15%;
     height: 100%;
     left: 5%;
-    top: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -80,10 +81,11 @@ export const Bar = styled.nav `
         width: 100%;
         left: 0;
         background-color: white;
-        display: ${({ open }) => open ? 'flex' : 'none'};
+        bottom: ${({ open }) => open ? '0' : '100%'};
         align-items: center;
         justify-content: space-evenly;
         overflow: hidden; 
+        transition: all .5s ease-in-out;
     };
 `;
 

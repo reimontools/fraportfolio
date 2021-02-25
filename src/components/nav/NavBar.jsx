@@ -15,7 +15,7 @@ const NavBar = () => {
 
     return (
         <>
-            <Logo autoHide={ logoState } onClick={() => updLogoState()}>Francesca<br/>Pusceddu</Logo>
+            <Logo open={ navBarState } autoHide={ logoState } onClick={() => updLogoState()}>Francesca<br/>Pusceddu</Logo>
             <Burger open={ navBarState } autoHide={ logoState } onClick={() => handleNavBar()}>
                 <div />
                 <div />
