@@ -8,15 +8,15 @@ export const Logo = styled.div `
     position: fixed;
     left: 3%;
     top: 2%;
-    z-index: 500;
+    z-index: 1000;
     width: auto;
     font-family: fontAliens;
     font-size: 40px;
     letter-spacing: 3px;
     color: rgb(99, 99, 99);
-
+    cursor: pointer;
     @media screen and (max-width: ${mediumScreenSizePx}) {
-        position: fixed;
+        position: ${({ autoHide }) => autoHide ? "absolute" : "fixed"};
         font-size: 30px;
         letter-spacing: 3px;
     };
@@ -27,7 +27,7 @@ export const Burger = styled.div `
     display: none;
     @media screen and (max-width: ${mediumScreenSizePx}) {
         display: block;
-        position: fixed;
+        position: ${({ autoHide }) => autoHide ? "absolute" : "fixed"};
         right: 3%;
         top: 2%;
         padding: 15px 0 15px 15px;
@@ -117,4 +117,17 @@ export const IconContainer = styled.div `
     position: absolute; 
     right: 25%; 
     font-size: 25px;
+`;
+
+/*PAGECONTAINER##################################################*/
+export const PageContainer = styled.div `
+    position: relative;
+    left: 25%;
+    width: 65%;
+    height: auto;
+    /* border: 1px red solid; */
+    @media screen and (max-width: ${mediumScreenSizePx}) {
+        width: auto;
+        left: 0;
+    };
 `;

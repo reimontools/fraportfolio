@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import AppContext from "../../context/app/AppContext.js";
 import styled from "styled-components";
 import { BsArrowUpShort } from "react-icons/bs";
+
 
 const DivButtonUpStyled = styled.div `
     position: fixed;
@@ -22,7 +24,6 @@ const DivButtonUpStyled = styled.div `
 
 const ButtonUp = () => {
     const [showMe, setShowMe] = useState(false);
-
     useEffect(() => {
         window.onscroll = () => {
             const scroll = document.documentElement.scrollTop;
@@ -33,7 +34,6 @@ const ButtonUp = () => {
             }
         };
     }, []);
-
     const up = () => {
         setShowMe(false);
         var current = document.documentElement.scrollTop;
@@ -42,7 +42,6 @@ const ButtonUp = () => {
             window.scrollTo(0, current - (current / 6));
         };
     };
-
     return (
         <DivButtonUpStyled  showMe={ showMe } id="button-up" onClick={() => up()}>
             <BsArrowUpShort />
