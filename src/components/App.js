@@ -1,11 +1,9 @@
-import React from "react";
-import AppState from '../context/app/AppState';
+import AppState from '../store/AppProvider';
 import '../styles/app.css';
-import Routes from './Routes.jsx';
+import Routes from './RoutesApp';
 import ButtonUp from './others/ButtonUp.jsx';
 
 function App() {
-    
     return (
         <AppState>
             <Routes />
@@ -13,5 +11,4 @@ function App() {
         </AppState>
     );
 };
-
 export default App;

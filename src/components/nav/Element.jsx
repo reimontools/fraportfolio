@@ -1,15 +1,15 @@
 import React, { useState, useContext } from 'react'
-import AppContext from "../../context/app/AppContext.js";
+import { AppContext } from "../../store/AppProvider";
 import { Option, OptionContainer, IconContainer } from './NavBarStyled.jsx';
 import { BsArrowUpShort, BsArrowDownShort } from "react-icons/bs";
-import { mediumScreenSize } from "../../config/param.js";
+import { mediumScreenSize } from "../../helpers/ParamHeper.js";
 
 const Element = ({ item }) => {
     const [subNav, setSubNav] = useState(false);
-    const { setNavBarState } = useContext(AppContext);
+    const { setBarState } = useContext(AppContext);
 
     const handleNavBar = () => {
-        setNavBarState(false);
+        setBarState(false);
         if (window.screen.width <= mediumScreenSize) {
             document.getElementsByTagName('body')[0].style.overflow = 'visible';
         };

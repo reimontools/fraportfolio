@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import sanityClient from "../../config/client.js";
 import GalleryTwo from "../others/GalleryTwo";
 import Loading from "../others/Loading.jsx";

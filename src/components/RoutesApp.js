@@ -1,4 +1,3 @@
-import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import NavBar from './nav/NavBar';
 import Portraits from "./views/Portraits";
@@ -8,7 +7,7 @@ import PictureBooks from "./views/PictureBooks";
 import BitsAndPieces from "./views/BitsAndPieces";
 import About from "./views/About";
 import PageNotFound from "./views/PageNotFound";
-import { PageContainer } from '../components/nav/NavBarStyled';
+import { PageContainer } from './nav/NavBarStyled';
 
 const Routes = () => {
     return (
@@ -22,7 +21,6 @@ const Routes = () => {
                     <Route component={PictureBooks} path='/picturebooks' exact />
                     <Route component={BitsAndPieces} path='/bitsandpieces' exact />
                     <Route component={About} path='/about' exact />
-                    <Route component={PageNotFound} />
                 </PageContainer>
             </Switch>
         </Router>
