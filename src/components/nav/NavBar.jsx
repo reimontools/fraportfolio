@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { AppContext } from "../../store/AppProvider";
-import { navElements } from "../../helpers/ParamHeper.js";
+import { navElements } from "../../helpers/ParamHelper.js";
 import { Logo, Burger, Bar } from './NavBarStyled.jsx';
 import Element from './Element.jsx';
 

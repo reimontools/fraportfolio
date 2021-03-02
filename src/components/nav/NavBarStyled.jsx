@@ -1,6 +1,6 @@
 
 import styled from "styled-components";
-import { mediumScreenSizePx } from "../../helpers/ParamHeper.js";
+import { mediumScreenSizePx } from "../../helpers/ParamHelper.js";
 import { NavLink } from "react-router-dom";
 
 /*LOGO#####################################################*/

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { AppContext } from "../../store/AppProvider";
 import { Option, OptionContainer, IconContainer } from './NavBarStyled.jsx';
 import { BsArrowUpShort, BsArrowDownShort } from "react-icons/bs";
-import { mediumScreenSize } from "../../helpers/ParamHeper.js";
+import { mediumScreenSize } from "../../helpers/ParamHelper.js";
 
 const Element = ({ item }) => {
     const [subNav, setSubNav] = useState(false);

@@ -8,6 +8,5 @@ export const readLocalStorage = () => {
 };
 
 export const writeLocalStorage = (value) => {
-    console.log('cambiando a', value)
     localStorage.setItem('fraFixedLogo', value);
 };

@@ -1,7 +1,50 @@
-import React, { useState, forwardRef, useImperativeHandle, useEffect } from "react";
+import { useState, forwardRef, useImperativeHandle, useEffect } from "react";
 import ReactDOM from "react-dom";
-import '../../styles/modal-carousel.css';
-import { BsChevronLeft, BsChevronRight, BsX, BsArrowsAngleExpand, BsArrowsAngleContract } from "react-icons/bs"; //https://react-icons.github.io/react-icons/
+import styled from "styled-components";
+import ButtonIcon from "./ButtonIcon.jsx";
+
+const Overlay = styled.div `
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .7s ease;
+`;
+
+const SlideShow = styled.div `
+    width: 95%;
+    height: 75%;
+    background-color: rgba(255, 255, 255, .9);
+    color: #000;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    };
+`;
+
+const Imagetext = styled.div `
+    font-family: fontBrandon;
+    font-weight: bolder;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    position: absolute;
+    color: rgba(0, 0, 0, .7);
+    top: 101%;
+`;
 
 const ModalCarousel = forwardRef((props, ref) => {
     const [display, setDisplay] = useState(false);
@@ -47,15 +90,15 @@ const ModalCarousel = forwardRef((props, ref) => {
         setDisplay(false);
     };
 
-    const foward = () => {
+    const right = () => {
         if (index === max) {
             setIndex(0);
         } else {
             setIndex(index + 1);
         };
-    }
+    };
 
-    const back = () => {
+    const left = () => {
         if (index === 0) {
             setIndex(max);
         } else {
@@ -65,27 +108,19 @@ const ModalCarousel = forwardRef((props, ref) => {
 
     if (display) {
         return ReactDOM.createPortal(
-            <div className="overlay">
-                <div className="slideshow">
-                    <div onClick={expand} className="btn-icon expand">
-                        {fullScreen
-                            ? <BsArrowsAngleContract />
-                            : <BsArrowsAngleExpand />
-                        }
-                    </div>
-                    <div onClick={close} className="btn-icon close">
-                        <BsX className="expand-effect"/>
-                    </div>
-                    <div onClick={back} className="btn-icon back">
-                        <BsChevronLeft className="expand-effect"/>
-                    </div>
-                    <div onClick={foward} className="btn-icon forward">
-                        <BsChevronRight className="expand-effect"/>
-                    </div>
+            <Overlay>
+                <SlideShow>
+                    {fullScreen
+                        ? <ButtonIcon.Contract action={expand}/>
+                        : <ButtonIcon.Expand action={expand}/>
+                    }
+                    <ButtonIcon.Close action={close}/>
+                    <ButtonIcon.Left action={left}/>
+                    <ButtonIcon.Right action={right}/>
                     <img src={props.images[index].portraitImage.asset.url} alt={props.images[index].portraitImage.alt}></img> 
-                    <div className="image-name">{props.images[index].title}</div>
-                </div>
-            </div>, document.getElementById("modal-root")
+                    <Imagetext>{props.images[index].title}</Imagetext>
+                </SlideShow>
+            </Overlay>, document.getElementById("modal-root")
         );
     };
     return null;
