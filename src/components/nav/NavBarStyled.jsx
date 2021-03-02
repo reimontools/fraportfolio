@@ -124,8 +124,8 @@ export const IconContainer = styled.div `
 /*PAGECONTAINER##################################################*/
 export const PageContainer = styled.div `
     position: relative;
-    left: 25%;
-    width: 65%;
+    left: 30%;
+    width: 50%;
     height: auto;
     /* border: 1px red solid; */
     @media screen and (max-width: ${mediumScreenSizePx}) {

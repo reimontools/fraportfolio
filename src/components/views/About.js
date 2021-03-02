@@ -2,34 +2,49 @@ import {useState, useEffect} from "react";
 import sanityClient from "../../config/client.js";
 import Loading from "../others/Loading.jsx";
 import styled from "styled-components";
-import BlockContent from '@sanity/block-content-to-react';
 import { mediumScreenSizePx } from "../../helpers/ParamHelper.js";
+import IconLink from "../others/IconLink";
+import ImageTrans from "../others/ImageTrans.jsx";
 
 const Container = styled.div `
     position: absolute;
     display: flex;
     justify-content: space-evenly;
-    /* align-items: flex-start; */
-    //flex-direction: row;
+    top: 25px;
     div.txt-container {
         font-family: fontBrandon, sans-serif;
         font-size: 16px;
         font-weight: lighter;
         color: rgb(55, 55, 55); 
+        width: 40%;
         /* border: 1px #a0138e solid; */
-        width: 45%;
     };
+
+    div.ico-container {
+        display: flex;
+        justify-content: space-between; /*Horizontal*/ 
+        align-items: center; /*Vertical*/
+        //flex-direction: row;
+        font-size: 16px;
+        color: #999999;
+        width: 25%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    };
+
     div.img-container {
-        width: 45%;
+        width: 40%;
     };
-    img {
-        width: 100%;
+
+    p {
+        white-space: pre-line;
     };
+
     @media screen and (max-width: ${mediumScreenSizePx}) {
         flex-direction: column;
-        top: 100px;
-        left: 3%;
-        right: 3%;
+        top: 85px;
+        left: 7%;
+        right: 7%;
         div.txt-container {
             width: 100%;
         };
@@ -52,14 +67,11 @@ const About = () => {
             .fetch(`
                 *[_type == "about"] {
                     aboutName,
+                    aboutBio,
                     aboutImage {
                         asset -> {_id, url},
                         alt
-                    },
-                    aboutPara1,
-                    aboutPara2,
-                    aboutPara3,
-                    aboutPara4
+                    }
                 }
             `)
             .then((data) => {
@@ -75,15 +87,20 @@ const About = () => {
             {loading 
                 ? <Loading/>
                 :<Container className="container">
+
                     <div className="txt-container">
-                        <BlockContent blocks={aboutData[0].aboutPara1} projectId="psj52sns" dataset="production" /><br/>
-                        <BlockContent blocks={aboutData[0].aboutPara2} projectId="psj52sns" dataset="production" /><br/>
-                        <BlockContent blocks={aboutData[0].aboutPara3} projectId="psj52sns" dataset="production" /><br/>
-                        <BlockContent blocks={aboutData[0].aboutPara4} projectId="psj52sns" dataset="production" /><br/>
+                        <p>{aboutData[0].aboutBio}</p>
+                        <div className="ico-container">
+                            <IconLink.Twitter link={"https://twitter.com/cianytell_"}/>
+                            <IconLink.Instagram link={"https://www.instagram.com/francesca.puxeddu/"}/>
+                            <IconLink.Pinterest link={"https://www.pinterest.co.uk/frachan86/"}/>
+                        </div>
                     </div>
+
                     <div className="img-container">
-                        <img src={aboutData[0].aboutImage.asset.url} alt={aboutData[0].aboutImage.alt} />
+                        <ImageTrans.FadeIn src={aboutData[0].aboutImage.asset.url} alt={aboutData[0].aboutImage.alt}/>
                     </div>
+                    
                 </Container>
             }
         </>
