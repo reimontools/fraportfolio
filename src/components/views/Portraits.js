@@ -12,7 +12,7 @@ const Portraits = () => {
     }, []);
 
     const fetchPortraits = async () => {
-        sanityClient
+        await sanityClient
             .fetch(`*[_type == "portraits"] | order(location asc) {
                 location,
                 title,
