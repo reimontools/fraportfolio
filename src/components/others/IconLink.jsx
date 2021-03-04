@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mediumScreenSizePx } from "../../helpers/ParamHelper";
+import { MEDIUM_SCREEN_SIZE_PX } from "../../helpers/ParamHelper";
 import { SiTwitter, SiInstagram } from "react-icons/si";
 import { FaPinterestP } from "react-icons/fa";
 
@@ -18,7 +18,7 @@ const AIconLinkStyled = styled.a `
     &:hover {
         color:rgb(186, 218, 85)
     };
-    @media screen and (max-width: ${mediumScreenSizePx}) {
+    @media screen and (max-width: ${MEDIUM_SCREEN_SIZE_PX}) {
         &:hover {
             color:#999999;
         };
@@ -26,23 +26,23 @@ const AIconLinkStyled = styled.a `
 `;
 
 const IconLink = {
-    Twitter: function Twitter({link}) {
+    Twitter: function Twitter({url}) {
         return ( 
-            <AIconLinkStyled target="_blank" rel="noopener noreferrer" href={link}>
+            <AIconLinkStyled target="_blank" rel="noopener noreferrer" href={url}>
                 <SiTwitter/>
             </AIconLinkStyled>
         );
     },
-    Instagram: function Instagram({link}) {
+    Instagram: function Instagram({url}) {
         return ( 
-            <AIconLinkStyled target="_blank" rel="noopener noreferrer" href={link}>
+            <AIconLinkStyled target="_blank" rel="noopener noreferrer" href={url}>
                 <SiInstagram/>
             </AIconLinkStyled>
         );
     },
-    Pinterest: function Pinterest({link}) {
+    Pinterest: function Pinterest({url}) {
         return ( 
-            <AIconLinkStyled target="_blank" rel="noopener noreferrer" href={link}>
+            <AIconLinkStyled target="_blank" rel="noopener noreferrer" href={url}>
                 <FaPinterestP/>
             </AIconLinkStyled>
         );

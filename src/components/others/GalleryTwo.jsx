@@ -1,11 +1,11 @@
 import React, {useRef} from "react";
 import styled from "styled-components";
-import { smallScreenSize, mediumScreenSize, smallScreenSizePx, mediumScreenSizePx } from "../../helpers/ParamHelper"
+import { SMALL_SCREEN_SIZE, MEDIUM_SCREEN_SIZE, SMALL_SCREEN_SIZE_PX, MEDIUM_SCREEN_SIZE_PX } from "../../helpers/ParamHelper"
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 import ModalCarousel from "./ModalCarousel";
 
 // const resMode = {350: 1, 750: 2, 900: 3};
-const resSize = {[smallScreenSize]: 1, [mediumScreenSize]: 3};
+const resSize = {[SMALL_SCREEN_SIZE]: 1, [MEDIUM_SCREEN_SIZE]: 3};
     
 const DivGalleryTwoStyled = styled.div `
     img {
@@ -28,7 +28,7 @@ const DivGalleryTwoStyled = styled.div `
     .img-container {
         position: relative;
     }
-    @media (min-width: ${mediumScreenSizePx}) {
+    @media (min-width: ${MEDIUM_SCREEN_SIZE_PX}) {
         .img-container {
             cursor: zoom-in;
             &:hover img {

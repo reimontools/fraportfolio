@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { AppContext } from "../../store/AppProvider";
-import { navElements } from "../../helpers/ParamHelper.js";
+import { NAV_ELEMENTS } from "../../helpers/ParamHelper.js";
 import { Logo, Burger, Bar } from './NavBarStyled.jsx';
 import Element from './Element.jsx';
 
@@ -22,7 +22,7 @@ const NavBar = () => {
                 <div />
             </Burger>
             <Bar open={ barState }>
-                {navElements.map((item, index) => {
+                {NAV_ELEMENTS.map((item, index) => {
                     return <Element item={item} key={index}/>;
                 })}
             </Bar>

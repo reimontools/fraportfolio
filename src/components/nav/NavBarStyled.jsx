@@ -1,6 +1,6 @@
 
 import styled from "styled-components";
-import { mediumScreenSizePx } from "../../helpers/ParamHelper.js";
+import { MEDIUM_SCREEN_SIZE_PX } from "../../helpers/ParamHelper.js";
 import { NavLink } from "react-router-dom";
 
 /*LOGO#####################################################*/
@@ -16,7 +16,7 @@ export const Logo = styled.div `
     letter-spacing: 3px;
     color: rgb(99, 99, 99);
     cursor: pointer;
-    @media screen and (max-width: ${mediumScreenSizePx}) {
+    @media screen and (max-width: ${MEDIUM_SCREEN_SIZE_PX}) {
         position: ${({ autoHide }) => autoHide ? "absolute" : "fixed"};
         font-size: 30px;
         letter-spacing: 3px;
@@ -26,7 +26,7 @@ export const Logo = styled.div `
 /*BURGER##################################################*/
 export const Burger = styled.div `
     display: none;
-    @media screen and (max-width: ${mediumScreenSizePx}) {
+    @media screen and (max-width: ${MEDIUM_SCREEN_SIZE_PX}) {
         display: block;
         position: ${({ autoHide }) => autoHide ? "absolute" : "fixed"};
         right: 3%;
@@ -74,7 +74,7 @@ export const Bar = styled.nav `
     .left {
         padding-left: 20px;
     };
-    @media screen and (max-width: ${mediumScreenSizePx}) {
+    @media screen and (max-width: ${MEDIUM_SCREEN_SIZE_PX}) {
         .left {
             padding-left: 0;
         };
@@ -109,7 +109,7 @@ export const Option = styled(NavLink)`
     &:hover {
        color: rgb(186, 218, 85);
     };
-    @media screen and (max-width: ${mediumScreenSizePx}) {
+    @media screen and (max-width: ${MEDIUM_SCREEN_SIZE_PX}) {
         margin: 0px auto;
     };
 `;
@@ -128,7 +128,7 @@ export const PageContainer = styled.div `
     width: 50%;
     height: auto;
     /* border: 1px red solid; */
-    @media screen and (max-width: ${mediumScreenSizePx}) {
+    @media screen and (max-width: ${MEDIUM_SCREEN_SIZE_PX}) {
         width: auto;
         left: 0;
     };

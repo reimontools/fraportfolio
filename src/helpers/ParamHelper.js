@@ -1,8 +1,13 @@
-export const smallScreenSize = 350;
-export const mediumScreenSize = 1000;
-export const smallScreenSizePx = smallScreenSize + "px";
-export const mediumScreenSizePx = mediumScreenSize + "px";
-export const navElements = [
+export const SMALL_SCREEN_SIZE = 350;
+export const MEDIUM_SCREEN_SIZE = 1000;
+export const SMALL_SCREEN_SIZE_PX = SMALL_SCREEN_SIZE + "px";
+export const MEDIUM_SCREEN_SIZE_PX = MEDIUM_SCREEN_SIZE + "px";
+
+export const URL_TWITTER = "https://twitter.com/cianytell_";
+export const URL_INSTAGRAM = "https://www.instagram.com/francesca.puxeddu/";
+export const URL_PINTERES = "https://www.pinterest.co.uk/frachan86/";
+
+export const NAV_ELEMENTS = [
     {
         title: 'Portraits',
         path: '/'
