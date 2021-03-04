@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from "styled-components";
 
 const LoadingStyled = styled.div `
@@ -26,10 +25,10 @@ const LoadingStyled = styled.div `
     };
 `;
 
-const Loading = () => {
+const CustomLoading = () => {
     return (
         <LoadingStyled />
     );
 };
 
-export default Loading;
+export default CustomLoading;

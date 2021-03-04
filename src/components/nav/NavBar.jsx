@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { AppContext } from "../../store/AppProvider";
 import { NAV_ELEMENTS } from "../../helpers/ParamHelper.js";
-import { Logo, Burger, Bar } from './NavBarStyled.jsx';
-import Element from './Element.jsx';
+import { Element } from "../components";
 
+import { Logo, Burger, Bar } from './NavBarStyled.jsx';
 
 const NavBar = () => {
     const { barState, setBarState, logoState, updLogoState } = useContext(AppContext);

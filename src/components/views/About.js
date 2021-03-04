@@ -1,11 +1,8 @@
 import {useState, useEffect} from "react";
 import sanityClient from "../../config/client.js";
-import Loading from "../others/Loading.jsx";
 import styled from "styled-components";
 import { MEDIUM_SCREEN_SIZE_PX, URL_TWITTER, URL_INSTAGRAM, URL_PINTERES } from "../../helpers/ParamHelper.js";
-import IconLink from "../others/IconLink";
-import ImageTrans from "../others/ImageTrans.jsx";
-import InputText from "../others/InputText.jsx";
+import { IconLink, ImageTrans, CustomForm, InputText, CustomLoading } from "../components";
 
 const Container = styled.div `
     position: absolute;
@@ -41,41 +38,6 @@ const Container = styled.div `
     p {
         white-space: pre-line;
     };
-
-    div.frm-container {
-        /* border: 1px #a0138e solid; */
-    };
-
-    div.tit-container {
-        font-size: 40px;
-        font-weight: bolder;
-        color: #999999;
-        /* width: 40%; */
-        /* border: 1px #a0138e solid; */
-    };
-
-    /* div.bdy-container {
-        
-    } */
-
-    /* input {
-        font-family: fontBrandon, sans-serif;
-        font-size: 14px;
-        font-weight: lighter;
-        width: 100%;
-        height: 65px;
-        outline: none;
-        border:0;
-        border-bottom: solid 2px #ccc;
-
-        &:hover {
-            border-bottom: solid 2px rgb(186, 218, 85);
-        };
-
-        &:focus {
-            border-bottom: solid 2px #333c87;
-        };
-    }; */
 
     @media screen and (max-width: ${MEDIUM_SCREEN_SIZE_PX}) {
         flex-direction: column;
@@ -122,7 +84,7 @@ const About = () => {
     return (
         <>
             {loading 
-                ? <Loading/>
+                ? <CustomLoading/>
                 :<Container className="container">
 
                     <div className="txt-container">
@@ -133,13 +95,15 @@ const About = () => {
                             <IconLink.Pinterest url={URL_PINTERES}/>
                         </div>
 
-                        <div className="frm-container">
-                            <div className="tit-container">Contact</div>
-                            <div className="bdy-container">
+                        <form onSubmit="handleSubmit">
+                            <CustomForm.StyleOne title="Contact">
                                 <InputText.StyleOne placeholder="Name" required/>
                                 <InputText.StyleOne placeholder="Surname" required/>
-                            </div>
-                        </div>
+                                <InputText.StyleOne placeholder="Email" required/>
+                                <InputText.StyleOne placeholder="Write you message..." required/>
+                            </CustomForm.StyleOne>
+                        </form>
+                        
 
                     </div>
 

@@ -1,12 +1,6 @@
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import NavBar from './nav/NavBar';
-import Portraits from "./views/Portraits";
-import Professional from "./views/Professional";
-import Poster from "./views/Poster";
-import PictureBooks from "./views/PictureBooks";
-import BitsAndPieces from "./views/BitsAndPieces";
-import About from "./views/About";
-import PageNotFound from "./views/PageNotFound";
+import { Portraits, Professional, Poster, PictureBooks, BitsAndPieces, About, PageNotFound, NavBar } from "./components";
+
 import { PageContainer } from './nav/NavBarStyled';
 
 const Routes = () => {

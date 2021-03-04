@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
-import ModalCarousel from "../ModalCarousel";
 import styled from "styled-components";
+import { ModalCarousel } from "../components";
 
 const ImgImageStyled = styled.img `
     width: 100%;

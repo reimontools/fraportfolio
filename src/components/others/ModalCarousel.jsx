@@ -1,7 +1,7 @@
 import { useState, forwardRef, useImperativeHandle, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import ButtonIcon from "./ButtonIcon.jsx";
+import { ButtonIcon } from "../components";
 
 const Overlay = styled.div `
     position: fixed;

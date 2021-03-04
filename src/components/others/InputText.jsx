@@ -23,7 +23,7 @@ const StyledOne = styled.input `
 const InputText = {
     StyleOne: function StyleOne(props) {
         return ( 
-            <StyledOne {...props} type="text"/>
+            <StyledOne {...props} type="text" autoComplete="nope" />
         );
     },
     StyleTwo: function StyleTwo(props) {
