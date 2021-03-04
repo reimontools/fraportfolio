@@ -25,10 +25,10 @@ const LoadingStyled = styled.div `
     };
 `;
 
-const CustomLoading = () => {
+const Loading = () => {
     return (
         <LoadingStyled />
     );
 };
 
-export default CustomLoading;
+export default Loading;

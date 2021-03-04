@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { App } from "./components/components";
+import { App } from "./component";
 
 ReactDOM.render(
     <App />, 

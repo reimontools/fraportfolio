@@ -9,7 +9,7 @@ const ImgStyledFadeIn = styled.img `
     };
 `;
 
-const ImageTrans = {
+const ImageTransition = {
     FadeIn: function FadeIn({src, alt}) {
         return ( 
             <ImgStyledFadeIn src={src} alt={alt} />
@@ -17,4 +17,5 @@ const ImageTrans = {
     }
 };
 
-export default ImageTrans;
+
+export default ImageTransition;

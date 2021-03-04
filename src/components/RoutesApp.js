@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import { Portraits, Professional, Poster, PictureBooks, BitsAndPieces, About, PageNotFound, NavBar } from "./components";
+import { Portraits, Professional, Poster, PictureBooks, BitsAndPieces, About, PageNotFound, NavBar } from "../component";
 
 import { PageContainer } from './nav/NavBarStyled';
 

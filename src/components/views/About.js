@@ -1,8 +1,9 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import sanityClient from "../../config/client.js";
 import styled from "styled-components";
+import { IconLink, ImageTransition, CustomForm, Input, Loading } from "../../component";
 import { MEDIUM_SCREEN_SIZE_PX, URL_TWITTER, URL_INSTAGRAM, URL_PINTERES } from "../../helpers/ParamHelper.js";
-import { IconLink, ImageTrans, CustomForm, InputText, CustomLoading } from "../components";
+import { useForm } from "react-hook-form";
 
 const Container = styled.div `
     position: absolute;
@@ -10,31 +11,25 @@ const Container = styled.div `
     justify-content: space-evenly;
     top: 25px;
     font-family: fontBrandon, sans-serif;
-
     div.txt-container {
         font-size: 16px;
         font-weight: lighter;
         color: rgb(55, 55, 55); 
-        width: 40%;
-        /* border: 1px #a0138e solid; */
+        width: 40%; /* border: 1px #a0138e solid; */
     };
-
     div.ico-container {
-        display: flex;
+        display: flex; //flex-direction: row;
         justify-content: space-between; /*Horizontal*/ 
         align-items: center; /*Vertical*/
-        //flex-direction: row;
         font-size: 16px;
         color: #999999;
         width: 25%;
         padding-top: 10px;
         padding-bottom: 10px;
     };
-
     div.img-container {
         width: 40%;
     };
-
     p {
         white-space: pre-line;
     };
@@ -54,29 +49,16 @@ const Container = styled.div `
 `;
 
 const About = () => {
+    const { register, handleSubmit, watch, errors } = useForm();
+    const onSubmit = data => {console.log(data)};
     const [aboutData, setAboutData] = useState(null);
     const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        setTimeout(fetchAbout, 500);
-    }, []);
+    useEffect(() => {fetchAbout()}, []);
 
     const fetchAbout = async () => {
         await sanityClient
-            .fetch(`
-                *[_type == "about"] {
-                    aboutName,
-                    aboutBio,
-                    aboutImage {
-                        asset -> {_id, url},
-                        alt
-                    }
-                }
-            `)
-            .then((data) => {
-                setAboutData(data);
-                // console.log(data[0].aboutName);
-            })
+            .fetch(`*[_type == "about"] {aboutName, aboutBio, aboutImage {asset -> {_id, url}, alt}}`)
+            .then((data) => {setAboutData(data)})
             .catch(console.error);
         setLoading(false);
     };
@@ -84,9 +66,8 @@ const About = () => {
     return (
         <>
             {loading 
-                ? <CustomLoading/>
+                ? <Loading/>
                 :<Container className="container">
-
                     <div className="txt-container">
                         <p>{aboutData[0].aboutBio}</p>
                         <div className="ico-container">
@@ -94,27 +75,21 @@ const About = () => {
                             <IconLink.Instagram url={URL_INSTAGRAM}/>
                             <IconLink.Pinterest url={URL_PINTERES}/>
                         </div>
-
-                        <form onSubmit="handleSubmit">
-                            <CustomForm.StyleOne title="Contact">
-                                <InputText.StyleOne placeholder="Name" required/>
-                                <InputText.StyleOne placeholder="Surname" required/>
-                                <InputText.StyleOne placeholder="Email" required/>
-                                <InputText.StyleOne placeholder="Write you message..." required/>
-                            </CustomForm.StyleOne>
-                        </form>
-                        
-
+                        <CustomForm.StyleOne title="Contact">
+                            <Input.InputTextArea name="name" placeholder="Name" register={register} />
+                            <Input.InputText name="surname" placeholder="Surname" register={register} />
+                            <Input.InputText name="email" placeholder="Email" register={register} />
+                            <Input.InputTextArea name="message" placeholder="Write you message..." type="textarea" register={register} />
+                            
+                        </CustomForm.StyleOne>
+                        <button type="button" onClick={handleSubmit(onSubmit)}>Hola</button>
                     </div>
-
                     <div className="img-container">
-                        <ImageTrans.FadeIn src={aboutData[0].aboutImage.asset.url} alt={aboutData[0].aboutImage.alt}/>
+                        <ImageTransition.FadeIn src={aboutData[0].aboutImage.asset.url} alt={aboutData[0].aboutImage.alt}/>
                     </div>
-                    
                 </Container>
             }
         </>
     );
 };
-
 export default About;

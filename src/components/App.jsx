@@ -1,8 +1,8 @@
 import AppState from '../store/AppProvider';
 import '../styles/app.css';
-import { RoutesApp as Routes, ButtonUp } from "./components";
+import { RoutesApp as Routes, ButtonUp } from "../component";
 
-function App() {
+const App = () => {
     return (
         <AppState>
             <Routes />

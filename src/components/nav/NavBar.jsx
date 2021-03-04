@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AppContext } from "../../store/AppProvider";
 import { NAV_ELEMENTS } from "../../helpers/ParamHelper.js";
-import { Element } from "../components";
+import { Element } from "../../component";
 
 import { Logo, Burger, Bar } from './NavBarStyled.jsx';
 

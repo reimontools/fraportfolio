@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import sanityClient from "../../config/client.js";
-import { GalleryTwo, CustomLoading } from "../components";
+import { GalleryTwo, Loading } from "../../component";
 
 const Portraits = () => {
     const [portraitsData, setPortraitsData] = useState(null);
@@ -30,7 +30,7 @@ const Portraits = () => {
     return (
         <>
             {loading 
-                ? <CustomLoading/>
+                ? <Loading/>
                 : <GalleryTwo images={portraitsData}/>
             }
         </>
