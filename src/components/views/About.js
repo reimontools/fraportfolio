@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import sanityClient from "../../config/client.js";
 import styled from "styled-components";
-import { IconLink, ImageTransition, CustomForm, Input, Loading } from "../../component";
+import { IconLink, ImageTransition, CustomForm, Loading, Input } from "../../component";
 import { MEDIUM_SCREEN_SIZE_PX, URL_TWITTER, URL_INSTAGRAM, URL_PINTERES } from "../../helpers/ParamHelper.js";
+
 import { useForm } from "react-hook-form";
+import * as Yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup';
 
 const Container = styled.div `
     position: absolute;
@@ -49,12 +52,23 @@ const Container = styled.div `
 `;
 
 const About = () => {
-    const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = data => {console.log(data)};
     const [aboutData, setAboutData] = useState(null);
     const [loading, setLoading] = useState(true);
     useEffect(() => {fetchAbout()}, []);
 
+    const schema = Yup.object().shape({
+        name: Yup.string().matches(/^([^0-9]*)$/,'Name should not containt numbers').required('Required'),
+        surname: Yup.string().required('Required'),
+        email: Yup.string().email("Invalid format").required('Required')
+    });
+
+    const { register, handleSubmit, errors } = useForm({
+        mode: 'onBlur',
+        resolver: yupResolver(schema),
+    });
+
+    const onSubmit = data => {console.log(data)};
+    
     const fetchAbout = async () => {
         await sanityClient
             .fetch(`*[_type == "about"] {aboutName, aboutBio, aboutImage {asset -> {_id, url}, alt}}`)
@@ -75,14 +89,15 @@ const About = () => {
                             <IconLink.Instagram url={URL_INSTAGRAM}/>
                             <IconLink.Pinterest url={URL_PINTERES}/>
                         </div>
-                        <CustomForm.StyleOne title="Contact">
-                            <Input.InputTextArea name="name" placeholder="Name" register={register} />
-                            <Input.InputText name="surname" placeholder="Surname" register={register} />
-                            <Input.InputText name="email" placeholder="Email" register={register} />
-                            <Input.InputTextArea name="message" placeholder="Write you message..." type="textarea" register={register} />
-                            
-                        </CustomForm.StyleOne>
-                        <button type="button" onClick={handleSubmit(onSubmit)}>Hola</button>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <CustomForm.StyleOne title="Contact">
+                                <Input.Text name="name" placeholder="Name" register={register} error={errors.name} />
+                                <Input.Text name="surname" placeholder="Surname" register={register} error={errors.surname} />
+                                <Input.Text name="email" type="email" placeholder="Email" register={register} error={errors.email}/>
+                                <Input.Text name="message" placeholder="Write you message..." type="textarea" register={register} />
+                                <button type="submit">Submit</button>    
+                            </CustomForm.StyleOne>
+                        </form>
                     </div>
                     <div className="img-container">
                         <ImageTransition.FadeIn src={aboutData[0].aboutImage.asset.url} alt={aboutData[0].aboutImage.alt}/>
@@ -92,4 +107,5 @@ const About = () => {
         </>
     );
 };
+
 export default About;
